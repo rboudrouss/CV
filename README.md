@@ -1,1 +1,5 @@
-TODO CV pour l'informatique + version anglais des deux
+CV.pdf: general CV (not complete)
+
+CS/ for computer science related applications (jobs, internships, university, etc..)
+
+jobs/ for student jobs
