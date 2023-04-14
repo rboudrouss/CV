@@ -1,3 +1,7 @@
+# has some spell checking config
+.vscode
+
+# latex temporary files
 *.log
 *.aux
 *.out

@@ -404,12 +404,12 @@
 
 
         \ifthenelse{\isempty{#1}}{}{
-        \textcolor{black} {\cvtext{\textbf{#1}} }
-        }
+        \textcolor{black} {\textbf{#1} }
+        } %\\ 
 
 
-        \ifthenelse{\isempty{#2}}{}{
-                \cvtext{{ \textcolor{maincol} {#2} }}\\
+        \ifthenelse{\isempty{#2}}{\vspace{10pt}}{
+                \cvtextsmall{{ \textcolor{maincol} {#2} }}\\
         }
 
 
@@ -510,20 +510,20 @@
 
 \cvmetaevent
 {Birdy - site Web}
-{}
-{Clone de Twitter Réalisé en Typescript, en backend Nextjs et en frontend React. Disponible sur https://birdy.rboud.com} 
+{Projet Universitaire}
+{Clone de Twitter Réalisé en Typescript, en backend Nextjs et en frontend React. Disponible sur \url{https://birdy.rboud.com}} 
 
 
 \cvmetaevent
 {Count\_stats - site Web}
-{Sorbonne Université}
-{site web affichant diverse statistique de l'activité d'un salon textuel discord. En frontend Typescript avec React, en backend python avec Django. Disponible sur https://count.rboud.com}
+{}
+{site web affichant diverse statistique de l'activité d'un salon textuel discord. En frontend Typescript avec React, en backend python avec Django. Disponible sur \url{https://count.rboud.com}}
 
 \cvmetaevent
 {request\_parser - parseur}
-{Sorbonne Université}
+{Projet Universitaire}
 {
-  Analyse et extrait les informations d'une requête binaire en Typescript utilisant la théorie des combinaisons des parser combinator.
+  Analyse et extrait les informations d'une requête binaire en Typescript utilisant la théorie des combinaisons des parser combinator. Disponible sur \url{github.com/rboudrouss/request_parser}
 }
 
 \cvsection{Langues}
@@ -564,13 +564,13 @@
 
 
 \cvevent
-{09/2020 - \textcolor{gray}{07/2023}}
+{09/2020 - \textcolor{lightgray}{07/2023}}
         {Licence d'informatique - Sorbonne Université}
         {4 place Jussieu, Paris $\text{5}^\text{e}$ 75005, France \newline Sorbonne Université Campus Jussieu}
         {
                 \begin{itemize}
                         \item \textbf{2022-2023 : L3 mono informatique}. \newline Troisième année informatique. Cours suivis : Statistiques et informatique, Système de gestions de base de donnée, architectures des ordinateurs, réseaux, fondement de système d'exploitation, technologie du web, science des données, calculabilité et décidabilité, Génie Logiciel.
-                        item \textbf{2021-2022 : L2 double majeure physique et informatique}. \newline Deuxième année intensive. Cours suivis : Orienté objet, Mathématiques discrètes, C avancé, programmation fonctionnelle, Algorithmie, Structure de données, Base de données relationnelles.
+                        \item \textbf{2021-2022 : L2 double majeure physique et informatique}. \newline Deuxième année intensive. Cours suivis : Orienté objet, Mathématiques discrètes, C avancé, programmation fonctionnelle, Algorithmie, Structure de données, Base de données relationnelles.
                         \item \textbf{2020-2021 : L1 portail MIPI}. \newline Première année pluridisciplinaire. Cours suivis : Mathématiques, Mécanique, physique, Element de programmation.
                 \end{itemize}
         }
@@ -591,7 +591,7 @@
 \vspace{4pt}
 
 \cvevent
-{07/2021 - \textcolor{gray}{...}}
+{07/2021 - \textcolor{lightgray}{...}}
         {Employé Polyvalent CDI - LIDL}
         {44 rue des Grésillons, Asnières-sur-Seine 92600, France}
     {Réalisation de toutes les tâches relatives à la vente, au travail en caisse, au réapprovisionnement du supermarché, ainsi qu'à l'entretien du point de vente.}
@@ -604,6 +604,13 @@
     {
         Concours international de documentaires sur le développement durable réalisé par l'institut français de New Delhi, lauréat pour représenter le Maroc lors d'un déplacement en Inde.
     }
+        \vfill\null
+
+\cvevent
+{03/2019}
+        {Jury Junior - FICAM}
+        {Rue Ferhat Hachad, Meknes 50000, Maroc}
+    {Les Jury Juniors du Festival International de Cinéma d'Animation de Meknès ont décerné le Grand Prix 2019 au meilleur long-métrage d'animation.}
         \vfill\null
 
 
