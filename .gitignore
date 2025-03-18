@@ -1,7 +1,6 @@
-# has some spell checking config
-.vscode
-
-# latex temporary files
-*.log
 *.aux
+*.fdb_latexmk
+*.fls
+*.log
 *.out
+*.synctex.gz
