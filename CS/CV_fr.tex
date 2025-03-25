@@ -247,7 +247,7 @@
 % param 1: section title
 \newlength{\barw}
 \newcommand{\cvsection}[1] {
-  \vspace{14pt}
+  \vspace{7pt}
   \settowidth{\barw}{\textbf{\LARGE #1}}
   \cvtext{
     \textbf{\LARGE{\textcolor{darkcol}{#1}}}\\[-4pt]
@@ -256,7 +256,7 @@
 }
 
 \newcommand{\cvsubsection}[1] {
-  \vspace{14pt}
+  \vspace{7pt}
   \settowidth{\barw}{\textbf{\Large #1}}
   \cvtext{
     \textbf{\Large{\textcolor{darkcol}{#1}}}\\[-4pt]
@@ -329,7 +329,7 @@
       \cvtext{#4}\\
     }
   }
-  \vspace{14pt}
+  \vspace{7pt}
 }
 
 
@@ -390,7 +390,7 @@
     ([yshift=-80pt,xshift=-6cm]current page.south|-current page text area.south) --
     ([xshift=-2.5cm,yshift=-10pt]current page.south|-current page text area.south) --
     ([yshift=-10pt]current page.south east|-current page text area.south east) -- cycle;
-    \node[yshift=0.32cm,xshift=9cm] at (current page.south) {\fontsize{10}{10}\selectfont \textbf{\thepage}};
+    % \node[yshift=0.32cm,xshift=9cm] at (current page.south) {\fontsize{10}{10}\selectfont \textbf{\thepage}}; % page numerotation
   \end{tikzpicture}%
 }
 
@@ -431,18 +431,17 @@
     %----------------------------------------------------------------------------------------
     \includegraphics[width=\linewidth]{../assets/profile.jpg}  %trimming relative to image size
 
-    \vspace{5pt}
+    \vspace{10pt}
 
     %---------------------------------------------------------------------------------------
     %  META SKILLS
     %----------------------------------------------------------------------------------------
-    \fcolorbox{white}{white}{
-      \begin{minipage}[c][1.5cm][c]{1\mpwidth}
-        \LARGE{\textbf{\textcolor{maincol}{Boudrouss Réda}}} \\[2pt]
-        \normalsize{ \textcolor{black} {Développeur Web \& Logiciel} }
-    \end{minipage}} \\
-    \icontext{CaretRight}{12}{Né le 12/07/2002 à Meknes, Maroc}{black}\\[6pt]
-    \icontext{CaretRight}{12}{\textbf{Langues} : Français, Anglais (C1), Arabe}{black}\\[6pt]
+    \begin{minipage}[c][1.5cm][c]{1\mpwidth}
+      \LARGE{\textbf{\textcolor{maincol}{\mbox{BOUDROUSS Réda}}}} \\[2pt]
+      \large{\textbf{\textcolor{maincol}{Développeur Web \& Logiciel}}} \\[2pt]
+    \end{minipage} \\
+    \icontext{CaretRight}{12}{Né le 12/07/2002 à Meknes, \mbox{Maroc}}{black}\\[6pt]
+    \icontext{CaretRight}{12}{\textbf{Langues} : Français (Natif), Arabe (Natif), \mbox{Anglais} (C1)}{black}\\[6pt]
 
     %---------------------------------------------------------------------------------------
     %  EDUCATION
@@ -453,13 +452,13 @@
     {09/2024 - 07/2026}
     {• Master Science et Technologie du Logiciel}
     {Sorbonne Université - Jussieu}
-    {\textit{Programmation Concurente Répartie Réactive • Composants • Fonctionnel Avancé}}
+    {\textit{Programmation Concurrente Répartie Réactive • Composants • Fonctionnel Avancé}}
 
     \cvmetaevent
     {09/2020 - 07/2024}
     {• Licence d'informatique}
     {Sorbonne Université - Jussieu}
-    {\textit{Base de donnée • Algorithmie • Technologie Web • IA \& jeu • Réseaux • Statistiques • OS}}
+    {\textit{Base de donnée • Algorithmique • Technologie Web • IA \& jeu • Réseaux • Statistiques • OS}}
 
     \cvmetaevent
     {2020}
@@ -518,7 +517,7 @@
 
 
     \cvevent
-    {04/2024 - ...}
+    {04/2024 - \textcolor{lightgray}{05/2024}}
     {Président et Responsable Relations Externes}
     {Association Play Sorbonne Université}
     {
@@ -532,11 +531,10 @@
     \cvevent
     {07/2021 - ...}
     {Employé Polyvalent}
-    {Lidl - Asnières-sur-Seine}
+    {LIDL - Asnières-sur-Seine}
     {
       \begin{itemize}
-        \item \textbf{Gestion opérationnelle} : \textbf{Superviser} la ligne de caisse, \textbf{traiter} les réclamations et remboursements. \textbf{Assurer} la gestion des stocks, \textbf{contrôle} des DLC et suivi des rotations de produits.
-        \item \textbf{Service et polyvalence} : \textbf{Conseiller} les clients pour une expérience fluide. \textbf{Effectuer} diverses tâches en fonction des priorités : mise en rayon, encaissement, entretien des espaces de vente.
+            \item \textbf{Supervision} des caisses, \textbf{gestion} des stocks et rotations de produits, \textbf{traitement} des réclamations. \textbf{Conseil} client, encaissement, mise en rayon et entretien des espaces de vente.
       \end{itemize}
     }
     \vfill\null
@@ -545,23 +543,31 @@
     \cvsection{Projets}
 
     \cvevent
+    {09/2024}
+    {Play Sorbonne Festival}
+    {Association Play Sorbonne Université \newline \textcolor{black}{\href{https://playsorbonne.fr/festival}{https://playsorbonne.fr/festival}}}
+    {
+      L'édition 2024 du festival Play Sorbonne a réuni plus de \textbf{10 000} visiteurs.
+    }
+    \vfill\null
+
+    \cvevent
+    {09/2024}
+    {Glyph - Application Suivi jeu de piste}
+    {Association Play Sorbonne Universté \newline \textcolor{black}{\href{https://github.com/PlaySorbonne/glyph}{https://github.com/PlaySorbonne/glyph}} }
+    {
+      En septembre 2024, l'association a réalisé un jeu de piste grandeur nature pour découvrir le campus de Jussieu en \textbf{collaboration} avec les services de l'université. J'ai participé à la \textbf{coordination} avec les différents acteurs, et à la réalisation de la Web App qui a supportée jusqu'à \textbf{200 utilisateurs simultanées}.\newline
+      Typescript, \textbf{Next.js}, React, \textbf{Server Side Rendering}, \textbf{TailwindCSS}, \textbf{REST API}, Docker, \textbf{Login OAuth}, \textbf{PostgreSQL}, \textbf{Prisma}, \textbf{Progressive Web App}
+    }
+    \vfill\null
+
+    \cvevent
     {07/2023 - ...}
     {Site Web de l'association Play Sorbonne}
     {Association Play Sorbonne Universté \newline \textcolor{black}{\href{https://github.com/PlaySorbonne/psu_site}{https://github.com/PlaySorbonne/psu\_site}} }
     {
-      Site Web vitrine de l'association. Peut atteindre jusqu'à \textbf{1000 visiteurs} uniques par mois.\newline
+      Site Web vitrine de l'association. Peut atteindre en période de festival jusqu'à \textbf{1000 visiteurs uniques par jour}.\newline
       \textbf{Typescript}, \textbf{Astro.js}, \textbf{React}, \textbf{Github Actions}, \textbf{CSS}, \textbf{Javascript}, \textbf{SEO}
-    }
-    \vfill\null
-
-
-    \cvevent
-    {07/2024 - 09/2024}
-    {Glyph - Application Suivi jeu de piste}
-    {Association Play Sorbonne Universté \newline \textcolor{black}{\href{https://github.com/PlaySorbonne/glyph}{https://github.com/PlaySorbonne/glyph}} }
-    {
-      En septembre 2024, l'association a réalisé un jeu de piste grandeur nature pour découvrir le campus de Jussieu en \textbf{collaboration} avec les associations et les services de l'université. J'ai participé à la \textbf{coordination} avec les différents acteurs, et à la réalisation de la Web App.\newline
-      Typescript, \textbf{Next.js}, React, \textbf{Server Side Rendering}, \textbf{TailwindCSS}, \textbf{REST API}, Docker, \textbf{Login OAuth}, \textbf{PostgreSQL}, \textbf{Prisma}, \textbf{Progressive Web App}
     }
     \vfill\null
 
