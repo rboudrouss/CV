@@ -149,6 +149,13 @@
 \definecolor{softcol}{RGB}{225,225,225}
 
 
+%----------------------------------------------------------------------------------------
+%	Other Packages
+%---------------------------------------------------------------------------------------- 
+
+% for \href
+\usepackage[hidelinks]{hyperref}
+
 %============================================================================%
 %
 %
@@ -313,7 +320,7 @@
 \vspace{-8pt}
 \begin{center}
     {\HUGE \textsc{Boudrouss Réda} \textcolor{sectcol}{\rule[-1mm]{1mm}{0.9cm}} \textsc{CV}}\\[2pt]
-    {\small Ingénieur logiciel \textbullet{} Développeur Fullstack}
+    {\small M2 Sciences et Technologie du Logiciel à Sorbonne Université}
 \end{center}
 
 \vspace{6pt}
@@ -321,10 +328,9 @@
 %----------------------------------------
 %   MÉTADONNÉES
 %----------------------------------------
-\metasection{Paris 13e,France}{}
-\metasection{linkedin.com/in/rboudrouss}{}
-\metasection{github.com/rboudrouss}{}
-\metasection{contact@rboud.com}{\textbf{Statut :} Étudiant en Master 2 Science et Technologie du Logiciel à Sorbonne Université}
+\metasection{\href{https://www.linkedin.com/in/rboudrouss}{linkedin.com/in/rboudrouss}}{}
+\metasection{\href{https://github.com/rboudrouss}{github.com/rboudrouss}}{}
+\metasection{\href{mailto:contact@rboud.com}{contact@rboud.com}}{}
 \metasection{+33 (0)7 55 78 85 16}{\textbf{Langues :} Français (Natif), Anglais (Professionnel), Arabe (Conversationnel)}
 
 \vspace{-15pt}
@@ -336,8 +342,8 @@
 %   RÉSUMÉ
 %----------------------------------------
 \cvsection{Résumé}
-\textbf{Ingénieur logiciel} en formation, passionné par le \textbf{développement web}, l'\textbf{open source} et les \textbf{architectures distribuées}. J'ai conçu et maintenu des \textbf{solutions robustes} utilisées par une \textbf{communauté active}. Mon \textbf{engagement associatif} m'a permis de piloter des projets \textbf{collaboratifs} et de faciliter la \textbf{communication interdisciplinaire} dans un environnement universitaire exigeant.\\
-Actuellement à la recherche d'une \textbf{alternance pour 2025--2026}, je suis disponible pour débuter \textbf{dès maintenant}.
+Actuellement en Master \textbf{Science et technologie du logiciel} à \textbf{Sorbonne Université}, je souhaite poursuivre en \textbf{doctorat} sur des thématiques liées à l'\textbf{analyse statique}, avec un intérêt particulier pour \textbf{l'interprétation abstraite}, \textbf{WebAssembly} et la \textbf{compilation JIT}. \\
+Je travaille actuellement sur le portage de \textbf{MOPSA} vers WebAssembly, un analyseur statique de C et Python.
 
 %============================================================================%
 %                            FORMATION                                     %
@@ -346,9 +352,9 @@ Actuellement à la recherche d'une \textbf{alternance pour 2025--2026}, je suis 
 \cvsection{Formation}
 
 \cvevent{2024 -- 2026}{Master Science et Technologie du Logiciel}{Sorbonne Université}{
-    {Conception de composants et d'architectures \textbf{asynchrones réactives et distribuées}, avec vérification de \textbf{sûreté}. Implémentation de \textbf{structures de données avancées} et \textbf{optimisation des performances} pour des problématiques complexes.},
-    {\textbf{Maîtrise} de l'assurance qualité, conception guidée par les tests, analyse statique, contrats de spécification.},
-    {Développement d'une interface web pour MOPSA : \textbf{portage} de l'analyseur statique \textbf{OCaml/C/C++} en \textbf{JavaScript} /\textbf{WebAssembly}, avec un front-end \textbf{React/TypeScript}.}
+    {Formation en \textbf{analyse statique}, \textbf{typage statique} et \textbf{interprétation abstraite}, avec étude de l'inférence de propriétés numériques pour la \textbf{vérification formelle} des programmes.},
+    {Conception et implémentation de \textbf{langages de programmation} et de leurs mécanismes d'exécution, développement de fonctionnalités de haut niveau, comparaison entre \textbf{interpréteur} et \textbf{compilateur}, et pratique de la programmation fonctionnelle.},
+    {Travaux en \textbf{concurrence}, \textbf{programmation répartie} et \textbf{architectures Web}, avec une sensibilité aux problématiques de \textbf{fiabilité logicielle}, de \textbf{performance} et d'outillage autour des environnements modernes d'exécution.}
 }
 
 \cvevent{2020 -- 2024}{Licence Informatique}{Sorbonne Université}{
@@ -363,7 +369,14 @@ Actuellement à la recherche d'une \textbf{alternance pour 2025--2026}, je suis 
 \vspace{-15pt}
 \cvsection{Expériences}
 
-\cvevent{2023 -- Présent}{Responsable Technique}{Association Play Sorbonne Université}{
+\cvevent{2025 -- 2026}{Quality Analyst}{Hexaglobe}{
+	{\textbf{Concevoir} des systèmes de \textbf{vérification} et de \textbf{contrôle de qualité} pour chaque projet pour \textbf{garantir} la \textbf{fiabilité} et la \textbf{cohérence} des développements},
+	{\textbf{Automatisation} des déploiements et des tests.},
+	{\textbf{Intégration} d'outil d'\textbf{analyse statique} (sonarqube) dans la CI/CD}
+}
+
+
+\cvevent{2023 -- 2026}{Responsable Technique}{Association Play Sorbonne Université}{
     {Conception et déploiement d'une \textbf{infrastructure virtualisée} : serveurs Docker, orchestration CI/CD, configuration réseau et gestion de Google Workspace (mails centralisés).},
     {Création et optimisation du site vitrine (\textbf{9 000 visiteurs uniques} en 2025) : architecture \textbf{responsive}, \textbf{SEO} on-page et suivi analytics.},
     {Développement d'une \textbf{Web App} mobile et \textbf{local-first} pour le suivi de quêtes : \textbf{authentification sécurisée}, architecture back-end optimisée pour clients à faible réseaux et base de données performante pour hauts trafics.}
@@ -382,13 +395,13 @@ Actuellement à la recherche d'une \textbf{alternance pour 2025--2026}, je suis 
 	{\textbf{Organisation} d'une équipe de plus de \textbf{100 bénévoles}, et contribution à la réussite d'un événement culturel ayant accueilli plus de \textbf{10 000 visiteurs}}
 }
 
-\vspace{-15pt}
-\cvsection{Compétences}
+%\vspace{-15pt}
+%\cvsection{Compétences}
 
-\textbf{Langage :} Typescript, Java, Python, Ocaml, SQL, C, Go \\
-\textbf{Méthodes :} TDD \& Model-based Testing, analyse statique de code, Design by Contract, DevOps \& Infrastructure \\
-\textbf{Technologie :} React, Next.js, Docker, tRPC, Tailwind, PostegresQL, Express, Git/Github, CI/CD, \\
-\textbf{Hobbies :} Conférence tech, talks, Gamejam, Hackaton
+%\textbf{Langage :} Typescript, Java, Python, Ocaml, SQL, C, Go \\
+%\textbf{Méthodes :} TDD \& Model-based Testing, analyse statique de code, Design by Contract, DevOps \& Infrastructure \\
+%\textbf{Technologie :} React, Next.js, Docker, tRPC, Tailwind, PostegresQL, Express, Git/Github, CI/CD, \\
+%\textbf{Hobbies :} Conférence tech, talks, Gamejam, Hackaton
 
 
 %--------------------------------------------------------------------------------------------------
@@ -397,7 +410,7 @@ Actuellement à la recherche d'une \textbf{alternance pour 2025--2026}, je suis 
 
 \null
 \vspace*{\fill}
-\hspace{-0.25\linewidth}\colorbox{white}{\makebox[1.5\linewidth][c]{\mystrut  \textnormal{\textcolor{sectcol}{linkedin.com/in/rboudrouss} $\cdot$ \textcolor{sectcol}{github.com/rboudrouss}}}}
+\hspace{-0.25\linewidth}\colorbox{white}{\makebox[1.5\linewidth][c]{\mystrut  \textnormal{\textcolor{sectcol}{\href{https://www.linkedin.com/in/rboudrouss}{linkedin.com/in/rboudrouss}} $\cdot$ \textcolor{sectcol}{\href{https://github.com/rboudrouss}{github.com/rboudrouss}}}}}
 
 
 %============================================================================%
