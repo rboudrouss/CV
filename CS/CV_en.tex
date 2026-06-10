@@ -1,59 +1,53 @@
 %-----------------------------------------------------------------------------------------------------------------------------------------------%
-%  The MIT License (MIT)
+%	The MIT License (MIT)
 %
-%  Copyright (c) 2019 Jan Küster
+%	Copyright (c) 2015 Jan Küster
 %
-%  Permission is hereby granted, free of charge, to any person obtaining a copy
-%  of this software and associated documentation files (the "Software"), to deal
-%  in the Software without restriction, including without limitation the rights
-%  to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-%  copies of the Software, and to permit persons to whom the Software is
-%  furnished to do so, subject to the following conditions:
-%
-%  THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-%  IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-%  FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-%  AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-%  LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-%  OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
-%  THE SOFTWARE.
-%
+%	Permission is hereby granted, free of charge, to any person obtaining a copy
+%	of this software and associated documentation files (the "Software"), to deal
+%	in the Software without restriction, including without limitation the rights
+%	to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+%	copies of the Software, and to permit persons to whom the Software is
+%	furnished to do so, subject to the following conditions:
+%	
+%	THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+%	IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+%	FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+%	AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+%	LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+%	OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+%	THE SOFTWARE.
+%	
 %
 %-----------------------------------------------------------------------------------------------------------------------------------------------%
 
 
 %============================================================================%
 %
-%  DOCUMENT DEFINITION
+%	DOCUMENT DEFINITION
 %
 %============================================================================%
 
-\documentclass[10pt,A4,english]{article}
+%we use article class because we want to fully customize the page and don't use a cv template
+\documentclass[10pt,A4]{article}	
 
 
 %----------------------------------------------------------------------------------------
-%  ENCODING
+%	ENCODING
 %----------------------------------------------------------------------------------------
 
-% we use utf8 since we want to build from any machine
-\usepackage[utf8]{inputenc}
-\usepackage[USenglish]{isodate}
-\usepackage{fancyhdr}
-\usepackage[numbers]{natbib}
+%we use utf8 since we want to build from any machine
+\usepackage[utf8]{inputenc}		
 
 %----------------------------------------------------------------------------------------
-%  LOGIC
+%	LOGIC
 %----------------------------------------------------------------------------------------
 
 % provides \isempty test
-\usepackage{xstring, xifthen}
-\usepackage{enumitem}
-\usepackage[english]{babel}
-\usepackage{blindtext}
-\usepackage{pdfpages}
-\usepackage{changepage}
+\usepackage{xifthen}
+
 %----------------------------------------------------------------------------------------
-%  FONT BASICS
+%	FONT
 %----------------------------------------------------------------------------------------
 
 % some tex-live fonts - choose your own
@@ -61,519 +55,371 @@
 %\usepackage[defaultsans]{droidsans}
 %\usepackage[default]{comfortaa}
 %\usepackage{cmbright}
-\usepackage[default]{raleway}
+%\usepackage[default]{raleway}
 %\usepackage{fetamont}
 %\usepackage[default]{gillius}
 %\usepackage[light,math]{iwona}
-%\usepackage[thin]{roboto}
+%\usepackage[thin]{roboto} 
 
 % set font default
-\renewcommand*\familydefault{\sfdefault}
+\renewcommand*\familydefault{\sfdefault} 	
 \usepackage[T1]{fontenc}
 
 % more font size definitions
-\usepackage{moresize}
+\usepackage{moresize}		
+
 
 %----------------------------------------------------------------------------------------
-%  FONT AWESOME ICONS
+%	PAGE LAYOUT  DEFINITIONS
 %----------------------------------------------------------------------------------------
 
-% include the fontawesome icon set
-\usepackage{fontawesome}
-
-% use to vertically center content
-% credits to: http://tex.stackexchange.com/questions/7219/how-to-vertically-center-two-images-next-to-each-other
-\newcommand{\vcenteredinclude}[1]{\begingroup
-  \setbox0=\hbox{\includegraphics{#1}}%
-\parbox{\wd0}{\box0}\endgroup}
-\newcommand{\tab}[1]{\hspace{.2\textwidth}\rlap{#1}}
-% use to vertically center content
-% credits to: http://tex.stackexchange.com/questions/7219/how-to-vertically-center-two-images-next-to-each-other
-\newcommand*{\vcenteredhbox}[1]{\begingroup
-\setbox0=\hbox{#1}\parbox{\wd0}{\box0}\endgroup}
-
-% icon shortcut
-\newcommand{\icon}[3] {
-  \makebox(#2, #2){\textcolor{maincol}{\csname fa#1\endcsname}}
-}
+%debug page outer frames
+%\usepackage{showframe}			
 
 
-% icon with text shortcut
-\newcommand{\icontext}[4]{
-  \vcenteredhbox{\icon{#1}{#2}{#3}}  \hspace{2pt}  \parbox{0.9\mpwidth}{\textcolor{#4}{#3}}
-}
+%define page styles using geometry
+\usepackage[a4paper]{geometry}		
 
-% icon with website url
-\newcommand{\iconhref}[5]{
-  \vcenteredhbox{\icon{#1}{#2}{#5}}  \hspace{2pt} \href{#4}{\textcolor{#5}{#3}}
-}
+% for example, change the margins to 2 inches all round
+\geometry{top=1.25cm, bottom=-.6cm, left=1.5cm, right=1.5cm} 	
 
-% icon with email link
-\newcommand{\iconemail}[5]{
-  \vcenteredhbox{\icon{#1}{#2}{#5}}  \hspace{2pt} \href{mailto:#4}{\textcolor{#5}{#3}}
-}
+%use customized header
+\usepackage{fancyhdr}				
+\pagestyle{fancy}
 
-%----------------------------------------------------------------------------------------
-%  PAGE LAYOUT  DEFINITIONS
-%----------------------------------------------------------------------------------------
+%less space between header and content
+\setlength{\headheight}{-5pt}		
 
-% page outer frames (debug-only)
-% \usepackage{showframe}
 
-% we use paracol to display breakable two columns
-\usepackage{paracol}
-\usepackage{tikzpagenodes}
-\usetikzlibrary{calc}
-\usepackage{lmodern}
-\usepackage{multicol}
-\usepackage{lipsum}
-\usepackage{atbegshi}
-% define page styles using geometry
-\usepackage[a4paper]{geometry}
+%customize entries left, center and right
+%\lhead{}
+%\chead{}
+%\rhead{}
 
-% remove all possible margins
-\geometry{top=1cm, bottom=1cm, left=1cm, right=1cm}
 
-\usepackage{fancyhdr}
-\pagestyle{empty}
-
-% space between header and content
-% \setlength{\headheight}{0pt}
-
-% indentation is zero
+%indentation is zero
 \setlength{\parindent}{0mm}
 
 %----------------------------------------------------------------------------------------
-%  TABLE /ARRAY DEFINITIONS
-%----------------------------------------------------------------------------------------
+%	TABLE /ARRAY DEFINITIONS
+%---------------------------------------------------------------------------------------- 
 
-% extended aligning of tabular cells
+%for layouting tables
+\usepackage{multicol}			
+\usepackage{multirow}
+
+%extended aligning of tabular cells
 \usepackage{array}
 
-% custom column right-align with fixed width
-% use like p{size} but via x{size}
 \newcolumntype{x}[1]{%
 >{\raggedleft\hspace{0pt}}p{#1}}%
 
 
 %----------------------------------------------------------------------------------------
-%  GRAPHICS DEFINITIONS
-%----------------------------------------------------------------------------------------
+%	GRAPHICS DEFINITIONS
+%---------------------------------------------------------------------------------------- 
 
 %for header image
 \usepackage{graphicx}
 
-% use this for floating figures
-% \usepackage{wrapfig}
-% \usepackage{float}
-% \floatstyle{boxed}
-% \restylefloat{figure}
+%for floating figures
+\usepackage{wrapfig}
+\usepackage{float}
+%\floatstyle{boxed} 
+%\restylefloat{figure}
 
-%for drawing graphics
-\usepackage{tikz}
-\usepackage{ragged2e}
+%for drawing graphics		
+\usepackage{tikz}				
 \usetikzlibrary{shapes, backgrounds,mindmap, trees}
 
+
 %----------------------------------------------------------------------------------------
-%  Color DEFINITIONS
-%----------------------------------------------------------------------------------------
-\usepackage{transparent}
+%	Color DEFINITIONS
+%---------------------------------------------------------------------------------------- 
+
 \usepackage{color}
 
-% primary color
-\definecolor{maincol}{RGB}{ 64,64,64}
+%accent color
+\definecolor{sectcol}{RGB}{0,0,180}
 
-% accent color, secondary
-% \definecolor{accentcol}{RGB}{ 250, 150, 10 }
+%dark background color
+\definecolor{bgcol}{RGB}{110,110,110}
 
-% dark color
-\definecolor{darkcol}{RGB}{ 70, 70, 70 }
-
-% light color
-\definecolor{lightcol}{RGB}{245,245,245}
-
-\definecolor{accentcol}{RGB}{59,77,97}
+%light background / accent color
+\definecolor{softcol}{RGB}{225,225,225}
 
 
+%----------------------------------------------------------------------------------------
+%	Other Packages
+%---------------------------------------------------------------------------------------- 
 
-% Package for links, must be the last package used
+% for \href
 \usepackage[hidelinks]{hyperref}
 
-% returns minipage width minus two times \fboxsep
-% to keep padding included in width calculations
-% can also be used for other boxes / environments
-\newcommand{\mpwidth}{\linewidth-\fboxsep-\fboxsep}
-
-
-
 %============================================================================%
 %
-%  CV COMMANDS
+%
+%	DEFINITIONS
+%
 %
 %============================================================================%
 
 %----------------------------------------------------------------------------------------
-%   CV LIST
+% 	HEADER
 %----------------------------------------------------------------------------------------
 
-% renders a standard latex list but abstracts away the environment definition (begin/end)
-\newcommand{\cvlist}[1] {
-  \begin{itemize}{#1}
-  \end{itemize}
+% remove top header line
+\renewcommand{\headrulewidth}{0pt} 
+
+%remove bottom header line
+\renewcommand{\footrulewidth}{0pt}	  	
+
+%remove pagenum
+\renewcommand{\thepage}{}	
+
+%remove section num		
+\renewcommand{\thesection}{}			
+
+%----------------------------------------------------------------------------------------
+% 	ARROW GRAPHICS in Tikz
+%----------------------------------------------------------------------------------------
+
+% a six pointed arrow pointing to the left
+\newcommand{\tzlarrow}{(0,0) -- (0.2,0) -- (0.3,0.2) -- (0.2,0.4) -- (0,0.4) -- (0.1,0.2) -- cycle;}	
+
+% include the left arrow into a tikz picture
+% param1: fill color
+%
+\newcommand{\larrow}[1]
+{\begin{tikzpicture}[scale=0.58]
+	 \filldraw[fill=#1!100,draw=#1!100!black]  \tzlarrow
+ \end{tikzpicture}
 }
 
+% a six pointed arrow pointing to the right
+\newcommand{\tzrarrow}{ (0,0.2) -- (0.1,0) -- (0.3,0) -- (0.2,0.2) -- (0.3,0.4) -- (0.1,0.4) -- cycle;}
+
+% include the right arrow into a tikz picture
+% param1: fill color
+%
+\newcommand{\rarrow}
+{\begin{tikzpicture}[scale=0.7]
+	\filldraw[fill=sectcol!100,draw=sectcol!100!black] \tzrarrow
+ \end{tikzpicture}
+}
+
+
+
 %----------------------------------------------------------------------------------------
-%   CV TEXT
+%	custom sections
 %----------------------------------------------------------------------------------------
 
-% base class to wrap any text based stuff here. Renders like a paragraph.
-% Allows complex commands to be passed, too.
-% param 1: *any
-\newcommand{\cvtext}[1] {
-  \begin{tabular*}{1\mpwidth}{p{0.98\mpwidth}}
-    \parbox{1\mpwidth}{#1}
-  \end{tabular*}
-}
-\newcommand{\cvtextsmall}[1] {
-  \begin{tabular*}{0.8\mpwidth}{p{0.8\mpwidth}}
-    \parbox{0.8\mpwidth}{#1}
-  \end{tabular*}
-}
-%----------------------------------------------------------------------------------------
-%  CV SECTION
-%----------------------------------------------------------------------------------------
-
-% Renders a a CV section headline with a nice underline in main color.
+% create a coloured box with arrow and title as cv section headline
 % param 1: section title
-\newlength{\barw}
-\newcommand{\cvsection}[1] {
-  \vspace{7pt}
-  \settowidth{\barw}{\textbf{\LARGE #1}}
-  \cvtext{
-    \textbf{\LARGE{\textcolor{darkcol}{#1}}}\\[-4pt]
-    \textcolor{accentcol}{ \rule{\barw}{1.5pt} } \\
-  }
+%
+\newcommand{\cvsection}[1]
+{
+	\begin{center}
+		\large\textcolor{sectcol}{\textbf{#1}}
+	\end{center}
 }
 
-\newcommand{\cvsubsection}[1] {
-  \vspace{7pt}
-  \settowidth{\barw}{\textbf{\Large #1}}
-  \cvtext{
-    \textbf{\Large{\textcolor{darkcol}{#1}}}\\[-4pt]
-    \textcolor{accentcol}{ \rule{\barw}{1.5pt} } \\
-  }
+%create a coloured arrow with title as cv meta section section
+% param 1: meta section title
+%
+\newcommand{\metasection}[2]
+{
+%\begin{tabular*}{1\textwidth}{r r}
+\footnotesize{#2} \hspace*{\fill} \footnotesize{#1}\\[1pt]
+%\end{tabular*}
 }
-
-\newcommand{\cvheadline}[1] {
-  \vspace{16pt}
-  \cvtext{
-    \textbf{\Huge{\textcolor{accentcol}{#1}}}\\[-4pt]
-
-  }
-}
-
-\newcommand{\cvsubheadline}[1] {
-  \vspace{16pt}
-  \cvtext{
-    \textbf{\huge{\textcolor{darkcol}{#1}}}\\[-4pt]
-
-  }
-}
-%----------------------------------------------------------------------------------------
-%  META SKILL
-%----------------------------------------------------------------------------------------
-
-% Renders a progress-bar to indicate a certain skill in percent.
-% param 1: name of the skill / tech / etc.
-% param 2: level (for example in years)
-% param 3: percent, values range from 0 to 1
-\newcommand{\cvskill}[3] {
-  \begin{tabular*}{1\mpwidth}{p{0.72\mpwidth}  r}
-    \textcolor{black}{\textbf{#1}} & \textcolor{maincol}{#2}\\
-  \end{tabular*}%
-
-  \hspace{4pt}
-  \begin{tikzpicture}[scale=1,rounded corners=2pt,very thin]
-    \fill [lightcol] (0,0) rectangle (1\mpwidth, 0.15);
-    \fill [accentcol] (0,0) rectangle (#3\mpwidth, 0.15);
-  \end{tikzpicture}%
-}
-
 
 %----------------------------------------------------------------------------------------
-%   CV EVENT
+%	 CV EVENT
 %----------------------------------------------------------------------------------------
 
-% Renders a table and a paragraph (cvtext) wrapped in a parbox (to ensure minimum content
-% is glued together when a pagebreak appears).
-% Additional Information can be passed in text or list form (or other environments).
+% creates a stretched box as cv entry headline followed by some paragraphs about 
 % the work you did
-% param 1: time-frame i.e. Sep 14 - Jan 15 etc.
-% param 2:   event name (job position etc.)
-% param 3: Customer, Employer, Industry
-% param 4: Short description
-% param 5: work done (optional)
-% param 6: technologies include (optional)
-% param 7: achievements (optional)
-\newcommand{\cvevent}[7] {
+% param 1:	event time i.e. 2014 or 2011-2014 etc.
+% param 2:	event name (what did you do?)
+% param 3:	institution (where did you work / study)
+% param 4:	list of paragraphs
+%
+\newcommand{\cvevent}[4]
+{
 
-  % we wrap this part in a parbox, so title and description are not separated on a pagebreak
-  % if you need more control on page breaks, remove the parbox
-  \parbox{\mpwidth}{
-    \begin{tabular*}{1\mpwidth}{p{0.66\mpwidth}  r}
-      \textcolor{black}{\textbf{#2}} & \colorbox{accentcol}{\makebox[0.32\mpwidth]{\textcolor{white}{\textbf{#1}}}} \\
-      \textcolor{maincol}{#3} & \\
-    \end{tabular*}\\
+\begin{tabular*}{1\textwidth}{p{13.6cm}  x{3.9cm}}
+	\textbf{#2} - \textcolor{bgcol}{#3} &   \vspace{2.5pt}\textcolor{sectcol}{#1}
+\end{tabular*}
 
-    \ifthenelse{\isempty{#4}}{}{
-      \cvtext{#4}\\
-    }
-  }
-  \vspace{7pt}
+\vspace{-8pt}
+\textcolor{softcol}{\hrule}
+\vspace{6pt}
+
+	\foreach \desc in {#4}{
+		$\cdot$ \desc\\[3pt]
+	}
+	
+\vspace{3pt}
 }
 
+% creates a stretched box as 
+\newcommand{\cveventmeta}[2]
+{
+	\mbox{\mystrut \hspace{87pt}\textit{#1}}\\
+	#2
+}
 
 %----------------------------------------------------------------------------------------
-%   CV META EVENT
+% CUSTOM STRUT FOR EMPTY BOXES
+%----------------------------------------- -----------------------------------------------
+\newcommand{\mystrut}{\rule[-.3\baselineskip]{0pt}{\baselineskip}}
+
 %----------------------------------------------------------------------------------------
-
-% Renders a CV event on the sidebar
-% param 1: title
-% param 2: subtitle (optional)
-% param 3: customer, employer, etc,. (optional)
-% param 4: info text (optional)
-\newcommand{\cvmetaevent}[4] {
-  \textcolor{black}{\cvtext{\textbf{#2}} }
-
-
-  \cvtext{{\textcolor{maincol}{#3}}}
-
-  \textcolor{maincol}{\cvtext{\textbf{#1}}}\\
-
-  \cvtext{#4}\\[6pt]
-}
-
-%---------------------------------------------------------------------------------------
-%  QR CODE
+% CUSTOM LOREM IPSUM
 %----------------------------------------------------------------------------------------
-
-% Renders a qrcode image (centered, relative to the parentwidth)
-% param 1: percent width, from 0 to 1
-\newcommand{\cvqrcode}[1] {
-  \begin{center}
-    \includegraphics[width={#1}\mpwidth]{qrcode}
-  \end{center}
-}
+\newcommand{\lorem}
+{Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec a diam lectus.}
 
 
-% HEADER AND FOOOTER
-%====================================
-\newcommand\Header[1]{%
-  \begin{tikzpicture}[remember picture,overlay]
-    \fill[accentcol]
-    (current page.north west) -- (current page.north east) --
-    ([yshift=50pt]current page.north east|-current page text area.north east) --
-    ([yshift=50pt,xshift=-3cm]current page.north|-current page text area.north) --
-    ([yshift=10pt,xshift=-5cm]current page.north|-current page text area.north) --
-    ([yshift=10pt]current page.north west|-current page text area.north west) -- cycle;
-    \node[font=\sffamily\bfseries\color{white},anchor=west,
-    xshift=0.7cm,yshift=-0.32cm] at (current page.north west)
-    {\fontsize{12}{12}\selectfont {#1}};
-  \end{tikzpicture}%
-}
 
-\newcommand\Footer[1]{%
-  \begin{tikzpicture}[remember picture,overlay]
-    \fill[lightcol]
-    (current page.south east) -- (current page.south west) --
-    ([yshift=-80pt]current page.south east|-current page text area.south east) --
-    ([yshift=-80pt,xshift=-6cm]current page.south|-current page text area.south) --
-    ([xshift=-2.5cm,yshift=-10pt]current page.south|-current page text area.south) --
-    ([yshift=-10pt]current page.south east|-current page text area.south east) -- cycle;
-    % \node[yshift=0.32cm,xshift=9cm] at (current page.south) {\fontsize{10}{10}\selectfont \textbf{\thepage}}; % page numerotation
-  \end{tikzpicture}%
-}
-
-
-%=====================================
 %============================================================================%
 %
 %
 %
-%  DOCUMENT CONTENT
+%	DOCUMENT CONTENT
 %
 %
 %
 %============================================================================%
 \begin{document}
 
-\columnratio{0.31}
-\setlength{\columnsep}{2.2em}
-\setlength{\columnseprule}{4pt}
-\colseprulecolor{white}
+
+%use our custom fancy header definitions
+\pagestyle{fancy}	
 
 
-\AtBeginShipoutFirst{\Header{Curriculum Vitæ}\Footer{1}}
-\AtBeginShipout{\AtBeginShipoutAddToBox{\Header{Curriculum Vitæ}\Footer{2}}}
-
-\newpage
-
-\colseprulecolor{lightcol}
-\columnratio{0.31}
-\setlength{\columnsep}{2.2em}
-\setlength{\columnseprule}{4pt}
-\begin{paracol}{2}
 
 
-  \begin{leftcolumn}
-    %---------------------------------------------------------------------------------------
-    %  META IMAGE
-    %----------------------------------------------------------------------------------------
-    \includegraphics[width=\linewidth]{../assets/profile.jpg}  %trimming relative to image size
 
-    \vspace{10pt}
+%----------------------------------------------------------------------------------------
+%	HEADER IMAGE
+%----------------------------------------------------------------------------------------
 
-    %---------------------------------------------------------------------------------------
-    %  META SKILLS
-    %----------------------------------------------------------------------------------------
-    \begin{minipage}[c][1.5cm][c]{1\mpwidth}
-      \LARGE{\textbf{\textcolor{maincol}{\mbox{BOUDROUSS Réda}}}} \\[2pt]
-      \large{\textbf{\textcolor{maincol}{Web \& Software Developer}}} \\[2pt]
-    \end{minipage} \\
-    \icontext{CaretRight}{12}{Born on 12/07/2002 in Meknes, \mbox{Morocco}}{black}\\[6pt]
-    \icontext{CaretRight}{12}{\textbf{Languages}: French (Native), Arabic (Native), \mbox{English} (C1)}{black}\\[6pt]
-
-    %---------------------------------------------------------------------------------------
-    %  EDUCATION
-    %----------------------------------------------------------------------------------------
-    \cvsection{Studies}
-
-    \cvmetaevent
-    {09/2024 - 07/2026}
-    {• Master of Science and Software Technology}
-    {Sorbonne University}
-    {\textit{Concurrent, Distributed, Reactive Programming • Components • Advanced Functional Programming}}
-
-    \cvmetaevent
-    {09/2020 - 07/2024}
-    {• Bachelor's in Computer Science}
-    {Sorbonne Universiy}
-    {\textit{Databases • Algorithms • Web Technologies • AI \& Games • Networks • Statistics • OS}}
-
-    \cvmetaevent
-    {2020}
-    {• Scientific Baccalaureate}
-    {Lycée Paul Valéry - Meknes, Morocco}
-    {}
+%\begin{figure}[H]
+%\begin{flushright}
+%	\includegraphics[trim= 320 130 460 210,clip,width=0.2\linewidth]{myfoto.jpg}	%trimming relative to image size!
+%\end{flushright}
+%\end{figure}
 
 
-    %---------------------------------------------------------------------------------------
-    % Contact
-    %----------------------------------------------------------------------------------------
-    \cvsection{Contact}
+%---------------------------------------------------------------------------------------
+%	TITLE HEADLINE
+%----------------------------------------------------------------------------------------
 
-    \icontext{MapMarker}{16}{Paris 13}{black}\\[6pt]
-    \icontext{MobilePhone}{16}{+33 7 55 78 85 16}{black}\\[6pt]
-    \iconemail{Envelope}{16}{contact@rboud.com}{contact@rboud.com}{black}\\[6pt]
-    \iconhref{Github}{16}{rboudrouss}{https://www.github.com/rboudrouss}{black}\\[6pt]
-    \iconhref{Linkedin}{16}{rboudrouss}{https://www.linkedin.com/in/rboudrouss/}{black}\\[6pt]
-    \iconhref{Home}{16}{rboud.com}{https://rboud.com}{black}\\[6pt]
+\vspace{-8pt}
+\begin{center}
+    {\HUGE \textsc{Boudrouss Réda} \textcolor{sectcol}{\rule[-1mm]{1mm}{0.9cm}} \textsc{CV}}\\[2pt]
+    {\small MSc in Software Science and Technology at Sorbonne University}
+\end{center}
 
-  \end{leftcolumn}
+\vspace{6pt}
 
-  \begin{rightcolumn}
+%----------------------------------------
+%   MÉTADONNÉES
+%----------------------------------------
+\metasection{\href{https://github.com/rboudrouss}{github.com/rboudrouss}}{}
+\metasection{\href{https://www.linkedin.com/in/rboudrouss}{linkedin.com/in/rboudrouss}}{}
+\metasection{\href{mailto:contact@rboud.com}{contact@rboud.com}}{}
+\metasection{\href{https://rboud.com}{rboud.com}}{}
+\metasection{+33 (0)7 55 78 85 16}{\textbf{Languages:} French (Native), English (Professional), Arabic (Conversational)}
 
-    %---------------------------------------------------------------------------------------
-    %  PROFILE
-    %----------------------------------------------------------------------------------------
-    \cvsection{Biography}
-    \vspace{4pt}
+\vspace{-15pt}
+\textcolor{softcol}{\hrule}
 
-    \cvtext{
-      Developer passionate about \textbf{web} and \textbf{open source}, I have designed and maintained \textbf{solutions} used by an \textbf{active community}. My \textbf{association engagement} allowed me to manage \textbf{collaborative projects} and ensure \textbf{communication} between different university actors.
-    }
+\normalsize
 
+%----------------------------------------
+%   RÉSUMÉ
+%----------------------------------------
+\cvsection{Profile}
+Currently completing a Master's in Software Science and Technology at Sorbonne University, I aim to pursue a \textbf{PhD} supervised by \textbf{Antoine Miné} on topics related to \textbf{static analysis}, with a particular interest in \textbf{abstract interpretation}, \textbf{WebAssembly}, \textbf{Rust} and \textbf{JIT compilation}. \\
+I am currently looking for a partner company within the framework of an industrial PhD (\textbf{CIFRE}) project.
 
-    %---------------------------------------------------------------------------------------
-    %  WORK EXPERIENCE
-    %----------------------i------------------------------------------------------------------
+%============================================================================%
+%                            FORMATION                                     %
+%============================================================================%
 
-    \vspace{10pt}
-    \cvsection{Work Experience}
-    \vspace{4pt}
+\cvsection{Education}
 
+\cvevent{2024 -- 2026}{Master's in Software Science and Technology}{Sorbonne University}{
+    {Training in \textbf{static analysis}, static typing and \textbf{abstract interpretation}, including the inference of numerical properties for the formal verification of programs.},
+    {Design and implementation of \textbf{programming languages} and their execution mechanisms, development of high-level features, comparison between \textbf{interpreters} and \textbf{compilers}.},
+    {Work on \textbf{concurrency}, \textbf{distributed programming} and Web architectures, with a focus on \textbf{software reliability}, performance and tooling around modern runtime environments.}
+}
 
-    \cvevent
-    {03/2023 - ...}
-    {IT Manager}
-    {Play Sorbonne University Association}
-    {
-      \begin{itemize}
-        \item \textbf{System Administrator}: Servers, Virtualization, \textbf{Docker}, \textbf{CI/CD}, Firewall, Google Workspace, \textbf{Security}
-        \item \textbf{Lead Developer}: Software and Web Programming, \textbf{Project Management}, Maintenance, Automation, Documentation
-      \end{itemize}
-    }
-    \vfill\null
-
-
-    \cvevent
-    {04/2024 - \textcolor{lightgray}{05/2024}}
-    {President and External Relations Manager}
-    {Play Sorbonne University Association}
-    {
-      \begin{itemize}
-        \item \textbf{Coordination}: \textbf{Defining} and coordinating the overall strategy, \textbf{supervising} projects. \textbf{Bringing together} the team around common objectives, \textbf{monitoring} the progress of initiatives.
-        \item \textbf{Communication}: Ensuring \textbf{representation} of the association with university services, partner associations, \textbf{sponsors}, and external institutions. \textbf{Centralizing} and redistributing information.
-      \end{itemize}
-    }
-    \vfill\null
-
-    \cvevent
-    {07/2021 - ...}
-    {Versatile Employee}
-    {LIDL - Asnières-sur-Seine}
-    {
-      \begin{itemize}
-        \item \textbf{Supervision} of cash registers, \textbf{stock management} and product rotations, \textbf{handling} customer complaints. \textbf{Customer service}, checkout operations, shelf stocking, and maintenance of sales areas.
-      \end{itemize}
-    }
-    \vfill\null
+\cvevent{2020 -- 2024}{Bachelor's in Computer Science}{Sorbonne University}{
+    {Training in algorithms, computer architecture, operating systems, networks, databases, functional and object-oriented programming.},
+    {Completion of numerous \textbf{team projects} to put the coursework into practice, in various languages (C, Java, OCaml, Python, TypeScript...).}
+}
 
 
-    \cvsection{Projects}
+%---------------------------------------------------------------------------------------
+%	EDUCATION SECTION
+%--------------------------------------------------------------------------------------
+\vspace{-20pt}
+\cvsection{Experience}
 
-    \cvevent
-    {09/2024}
-    {Play Sorbonne Festival}
-    {Play Sorbonne University association \newline \textcolor{black}{\href{https://playsorbonne.fr/festival}{https://playsorbonne.fr/festival}}}
-    {
-      The 2024 edition of the Play Sorbonne festival gathered more than \textbf{10,000} visitors.
-    }
-    \vfill\null
-
-    \cvevent
-    {09/2024}
-    {Glyph - Game Tracking Application}
-    {Association Play Sorbonne Universté \newline \textcolor{black}{\href{https://github.com/PlaySorbonne/glyph}{https://github.com/PlaySorbonne/glyph}}}
-    {
-      In September 2024, the association organized a large-scale scavenger hunt to explore the Jussieu campus in \textbf{collaboration} with university services. I participated in the \textbf{coordination} with various actors and in the development of the Web App, which supported up to \textbf{200 simultaneous users}.\newline
-      Typescript, \textbf{Next.js}, React, \textbf{Server Side Rendering}, \textbf{TailwindCSS}, \textbf{REST API}, Docker, \textbf{OAuth Login}, \textbf{PostgreSQL}, \textbf{Prisma}, \textbf{Progressive Web App}
-    }
-    \vfill\null
+\cvevent{2025 -- 2026}{Quality Analyst}{Hexaglobe}{
+	{Design of \textbf{verification} and \textbf{quality-control} systems tailored to each project, to ensure the reliability and consistency of developments.},
+	{Automation of deployments and testing.},
+	{Integration of \textbf{static analysis} and quality-control tools into the CI/CD pipeline.}
+}
 
 
-    \cvevent
-    {07/2023 - ...}
-    {Play Sorbonne Association Website}
-    {Play Sorbonne University association \newline \textcolor{black}{\href{https://github.com/PlaySorbonne/psu_site}{https://github.com/PlaySorbonne/psu\_site}} }
-    {
-      Showcase website for the association. During the festival period, it can reach up to \textbf{1,000 unique visitors per day}.\newline
-      \textbf{Typescript}, \textbf{Astro.js}, \textbf{React}, \textbf{Github Actions}, \textbf{CSS}, \textbf{Javascript}, \textbf{SEO}
-    }
-    \vfill\null
+\cvevent{2023 -- 2026}{Technical Lead}{Play Sorbonne University Association}{
+    {Design and deployment of a \textbf{virtualized infrastructure}: Docker servers, CI/CD orchestration, network configuration and Google Workspace management (centralized email).},
+    {Creation and optimization of the showcase website (\textbf{9,000 unique visitors} in 2025): responsive architecture, \textbf{SEO} and analytics tracking.},
+    {Development of a mobile, \textbf{local-first} Web App for quest tracking: \textbf{secure authentication}, back-end architecture optimized for low-bandwidth clients and a high-performance database for high traffic.}
+}
 
-  \end{rightcolumn}
-\end{paracol}
+\cvevent{2024 -- 2025}{President}{Play Sorbonne University Association}{
+	{Definition and coordination of the \textbf{overall strategy}, project supervision, leading the team toward shared goals and representing the association.},
+	{Organization of a team of over \textbf{100 volunteers} and contribution to the success of a cultural event that welcomed more than \textbf{10,000 visitors}.}
+}
+
+\vspace{-20pt}
+\cvsection{Projects}
+$\cdot$ \href{https://github.com/rboudrouss/mopsa-emcc}{\textbf{Mopsa-wasm}: Porting the MOPSA analyzer to \textbf{WebAssembly} with a web interface. Mopsa is an abstract-interpretation-based analyzer for C and Python code, developed in \textbf{OCaml, C and C++.}} \\
+$\cdot$ \href{https://github.com/rboudrouss/reactant-analyzer}{\textbf{Reactant analyzer}: implementation of an \textbf{abstract interpretation}-based analyzer in \textbf{Rust} to analyze Web applications that use the \textbf{React} library.}
 
 
+
+%\vspace{-15pt}
+%\cvsection{Skills}
+
+%\textbf{Languages:} Typescript, Java, Python, Ocaml, SQL, C, Go \\
+%\textbf{Methods:} TDD \& Model-based Testing, static code analysis, Design by Contract, DevOps \& Infrastructure \\
+%\textbf{Technologies:} React, Next.js, Docker, tRPC, Tailwind, PostgreSQL, Express, Git/Github, CI/CD, \\
+%\textbf{Hobbies:} Tech conferences, talks, Game jams, Hackathons
+
+
+%--------------------------------------------------------------------------------------------------
+%	ARTIFICIAL FOOTER (fancy footer cannot exceed linewidth) 
+%--------------------------------------------------------------------------------------------------
+
+\null
+\vspace*{\fill}
+\hspace{-0.25\linewidth}\colorbox{white}{\makebox[1.5\linewidth][c]{\mystrut  \textnormal{\textcolor{sectcol}{\href{https://www.linkedin.com/in/rboudrouss}{linkedin.com/in/rboudrouss}} $\cdot$ \textcolor{sectcol}{\href{https://github.com/rboudrouss}{github.com/rboudrouss}}}}}
+
+
+%============================================================================%
+%
+%
+%
+%	DOCUMENT END
+%
+%
+%
+%============================================================================%
 \end{document}
