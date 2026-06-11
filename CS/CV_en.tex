@@ -154,7 +154,8 @@
 %---------------------------------------------------------------------------------------- 
 
 % for \href
-\usepackage[hidelinks]{hyperref}
+\definecolor{linkcolor}{RGB}{0,50,150}
+\usepackage[colorlinks=true,urlcolor=linkcolor,linkcolor=linkcolor]{hyperref}
 
 %============================================================================%
 %
@@ -343,7 +344,7 @@
 %   RÉSUMÉ
 %----------------------------------------
 \cvsection{Profile}
-Currently completing a Master's in Software Science and Technology at Sorbonne University, I aim to pursue a \textbf{PhD} supervised by \textbf{Antoine Miné} on topics related to \textbf{static analysis}, with a particular interest in \textbf{abstract interpretation}, \textbf{WebAssembly}, \textbf{Rust} and \textbf{JIT compilation}. \\
+Currently completing a Master's in Software Science and Technology at Sorbonne University, I aim to pursue a \textbf{PhD} supervised by \href{https://mine.perso.lip6.fr/index.html.fr}{\textbf{Antoine Miné}} on topics related to \textbf{static analysis}, with a particular interest in \textbf{abstract interpretation}, \textbf{WebAssembly}, \textbf{Rust} and \textbf{JIT compilation}. \\
 I am currently looking for a partner company within the framework of an industrial PhD (\textbf{CIFRE}) project.
 
 %============================================================================%
@@ -390,8 +391,8 @@ I am currently looking for a partner company within the framework of an industri
 
 \vspace{-20pt}
 \cvsection{Projects}
-$\cdot$ \href{https://github.com/rboudrouss/mopsa-emcc}{\textbf{Mopsa-wasm}: Porting the MOPSA analyzer to \textbf{WebAssembly} with a web interface. Mopsa is an abstract-interpretation-based analyzer for C and Python code, developed in \textbf{OCaml, C and C++.}} \\
-$\cdot$ \href{https://github.com/rboudrouss/reactant-analyzer}{\textbf{Reactant analyzer}: implementation of an \textbf{abstract interpretation}-based analyzer in \textbf{Rust} to analyze Web applications that use the \textbf{React} library.}
+$\cdot$ \href{https://github.com/rboudrouss/mopsa-emcc}{\textbf{Mopsa-wasm}} : Porting the MOPSA analyzer to \textbf{WebAssembly} with a web interface. Mopsa is an abstract-interpretation-based analyzer for C and Python code, developed in \textbf{OCaml, C and C++.} \\
+$\cdot$ \href{https://github.com/rboudrouss/reactant-analyzer}{\textbf{Reactant analyzer}} : implementation of an \textbf{abstract interpretation}-based analyzer in \textbf{Rust} to analyze Web applications that use the \textbf{React} library.
 
 
 
