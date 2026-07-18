@@ -352,7 +352,7 @@ At Hexaglobe I industrialized LLM-agent test generation with sandboxed \textbf{m
 \vspace{-12pt}
 \cvsection{Projects}
 $\cdot$ \href{https://github.com/rboudrouss/mopsa-emcc}{\textbf{Mopsa-wasm}}: ported \textbf{MOPSA}, a sound \textbf{abstract-interpretation} static analyzer for C and Python developed at LIP6 (\textbf{OCaml}/C/C++), to \textbf{WebAssembly}, with a fully client-side \href{https://mopsawasm.rboud.com}{playground} and a technical \href{https://rboud.com/blog/running-mopsa-in-the-browser/}{write-up}. \\
-$\cdot$ \href{https://github.com/rboudrouss/reactant-analyzer}{\textbf{Reactant analyzer}}: an abstract-interpretation-based static analyzer written in \textbf{Rust} for React web applications.
+$\cdot$ \href{https://github.com/rboudrouss/reactant-analyzer}{\textbf{Reactant analyzer}}: a static analyzer in \textbf{Rust} ($\sim$30k lines, 500+ tests) that detects React hook bugs (infinite render loops, derived state) by \textbf{abstract interpretation} over a CFG-based IR, flagging a loop when the state fixpoint \textbf{widens}.
 
 %----------------------------------------
 %   EDUCATION
@@ -367,15 +367,6 @@ $\cdot$ \href{https://github.com/rboudrouss/reactant-analyzer}{\textbf{Reactant 
 \cvevent{2020 -- 2024}{BSc in Computer Science}{Sorbonne University}{
     {Algorithms, computer architecture, operating systems, networks, databases, with team projects in C, Java, OCaml, Python and TypeScript.}
 }
-
-%----------------------------------------
-%   SKILLS
-%----------------------------------------
-\vspace{-12pt}
-\cvsection{Skills}
-\textbf{AI engineering:} LLM agent orchestration (Claude Code), prompting strategies, guardrail design, sandboxed agent execution (Docker) \\
-\textbf{Languages:} C, OCaml, Rust, Python, TypeScript, PHP, SQL \\
-\textbf{Topics:} abstract interpretation, testing (unit / integration / E2E), GitLab CI/CD, WebAssembly \& Emscripten
 
 %--------------------------------------------------------------------------------------------------
 %	ARTIFICIAL FOOTER (fancy footer cannot exceed linewidth)

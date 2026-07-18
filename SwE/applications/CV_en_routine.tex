@@ -328,7 +328,7 @@
 %   PROFILE
 %----------------------------------------
 \cvsection{Profile}
-Software engineer completing an MSc in Computer Science (Software Science \& Technology) at Sorbonne University, focused on \textbf{programming languages}, \textbf{static typing} and runtime implementation. I work in \textbf{OCaml}, \textbf{TypeScript} and Rust. I brought a large OCaml/C/C++ codebase, the MOPSA static analyzer, to the \textbf{browser} via WebAssembly, and built a \textbf{local-first}, offline-capable mobile web app backed by a low-bandwidth-optimized server. I put a lot of weight on robustness and testing.
+Software engineer completing an MSc in Computer Science (Software Science \& Technology) at Sorbonne University, focused on \textbf{programming languages}, \textbf{static typing} and runtime implementation. I work in \textbf{OCaml}, \textbf{TypeScript} and Rust. I brought a large OCaml/C/C++ codebase, the MOPSA static analyzer, to the \textbf{browser} via WebAssembly, and built a \textbf{local-first}, offline-capable mobile web app backed by a low-bandwidth-optimized server.
 
 %----------------------------------------
 %   PROJECTS
@@ -342,7 +342,8 @@ Software engineer completing an MSc in Computer Science (Software Science \& Tec
 }
 
 \cvevent{2026}{Reactant analyzer}{\href{https://github.com/rboudrouss/reactant-analyzer}{github.com/rboudrouss/reactant-analyzer}}{
-	{Designed and implemented a static analyzer in \textbf{Rust}, based on abstract interpretation, for \textbf{React} web applications.}
+	{Designed and implemented a static analyzer in \textbf{Rust} ($\sim$30k lines, 500+ tests) that catches \textbf{React} hook bugs beyond the reach of syntactic linters, such as infinite render loops, derived state and unstable dependencies.},
+	{Evaluates components in abstract domains over a dedicated CFG-based IR, flags an infinite render loop when the state fixpoint \textbf{widens}, and resolves custom hooks across files, including tsconfig path aliases in \textbf{Vite} projects.}
 }
 
 %----------------------------------------
@@ -373,16 +374,8 @@ Software engineer completing an MSc in Computer Science (Software Science \& Tec
 }
 
 \cvevent{2020 -- 2024}{BSc in Computer Science}{Sorbonne University}{
-    {Algorithms, computer architecture, operating systems, networks, databases, with team projects in C, Java, OCaml, Python and TypeScript.}
+    {Algorithms, computer architecture, operating systems, networks, databases and functional programming.}
 }
-
-%----------------------------------------
-%   SKILLS
-%----------------------------------------
-\vspace{-12pt}
-\cvsection{Skills}
-\textbf{Languages:} OCaml, TypeScript, Rust, Python, C, SQL \\
-\textbf{Topics:} WebAssembly, local-first \& offline architectures, testing (Playwright, Jest), GitLab CI/CD, Docker
 
 %--------------------------------------------------------------------------------------------------
 %	ARTIFICIAL FOOTER (fancy footer cannot exceed linewidth)

@@ -328,7 +328,7 @@
 %   PROFILE
 %----------------------------------------
 \cvsection{Profile}
-Software engineer completing an MSc in Computer Science (Software Science \& Technology) at Sorbonne University, specialized in \textbf{static analysis}, \textbf{abstract interpretation} and the implementation of \textbf{programming languages} and their runtimes. Much of my personal work sits at the \textbf{OCaml}/\textbf{WebAssembly} boundary. I cross-compiled MOPSA, a large OCaml/C/C++ abstract-interpretation analyzer, to Wasm with a fully client-side playground, and I built an abstract-interpretation-based analyzer in \textbf{Rust}. At Hexaglobe I ship production \textbf{GitLab CI/CD} and test infrastructure for video-streaming systems.
+Software engineer completing an MSc in Computer Science (Software Science \& Technology) at Sorbonne University, specialized in \textbf{static analysis}, \textbf{abstract interpretation} and the implementation of \textbf{programming languages} and their runtimes. Much of my personal work sits at the \textbf{OCaml}/\textbf{WebAssembly} boundary, between the MOPSA analyzer (OCaml/C/C++) I cross-compiled to Wasm and the analyzer I wrote in \textbf{Rust}. At Hexaglobe I ship production \textbf{GitLab CI/CD} and test infrastructure for video-streaming systems.
 
 %----------------------------------------
 %   PROJECTS
@@ -342,13 +342,14 @@ Software engineer completing an MSc in Computer Science (Software Science \& Tec
 }
 
 \cvevent{2026}{Reactant analyzer}{\href{https://github.com/rboudrouss/reactant-analyzer}{github.com/rboudrouss/reactant-analyzer}}{
-	{Designed and implemented an \textbf{abstract-interpretation}-based static analyzer in \textbf{Rust} for React web applications.}
+	{Designed and implemented an \textbf{abstract-interpretation}-based static analyzer in \textbf{Rust} ($\sim$30k lines, 500+ tests) that catches \textbf{React} hook bugs beyond the reach of syntactic linters, such as infinite render loops, derived state and unstable dependencies.},
+	{Evaluates components in abstract domains (intervals, constant sets, reference-stability tags) over a dedicated CFG-based IR and flags an infinite render loop when the state fixpoint \textbf{widens}. Resolves and inlines custom hooks across files, with concrete semantics based on the React-tRace paper (OOPSLA 2025).}
 }
 
 %----------------------------------------
 %   EDUCATION
 %----------------------------------------
-\vspace{-20pt}
+\vspace{-12pt}
 \cvsection{Education}
 
 \cvevent{2024 -- 2026}{MSc in Computer Science (Software Science \& Technology)}{Sorbonne University}{
@@ -356,13 +357,13 @@ Software engineer completing an MSc in Computer Science (Software Science \& Tec
 }
 
 \cvevent{2020 -- 2024}{BSc in Computer Science}{Sorbonne University}{
-    {Algorithms, computer architecture, operating systems, networks, databases, functional and object-oriented programming, with team projects in C, Java, OCaml, Python and TypeScript.}
+    {Algorithms, computer architecture, operating systems, networks, databases and functional programming.}
 }
 
 %----------------------------------------
 %   EXPERIENCE
 %----------------------------------------
-\vspace{-20pt}
+\vspace{-12pt}
 \cvsection{Experience}
 
 \cvevent{2025 -- 2026}{Quality Analyst Engineer (apprenticeship)}{Hexaglobe (video streaming)}{
@@ -375,14 +376,6 @@ Software engineer completing an MSc in Computer Science (Software Science \& Tec
 \cvevent{2023 -- 2026}{Technical Lead, then President (2024--25)}{Association Play Sorbonne Université}{
 	{Designed and operated a virtualized \textbf{infrastructure} (Docker servers, CI/CD, networking) and built a \textbf{local-first} mobile web app. As president, led \textbf{100+ volunteers} for a cultural event welcoming 10,000+ visitors.}
 }
-
-%----------------------------------------
-%   SKILLS
-%----------------------------------------
-\vspace{-20pt}
-\cvsection{Skills}
-\textbf{Languages:} OCaml, Rust, TypeScript, Python, C, Java, SQL \\
-\textbf{Topics:} WebAssembly \& Emscripten, static analysis \& abstract interpretation, concurrency \& distributed systems, GitLab CI/CD, Docker
 
 %--------------------------------------------------------------------------------------------------
 %	ARTIFICIAL FOOTER (fancy footer cannot exceed linewidth)

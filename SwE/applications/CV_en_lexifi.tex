@@ -328,7 +328,7 @@
 %   PROFILE
 %----------------------------------------
 \cvsection{Profile}
-Software engineer completing an MSc in Computer Science (Software Science \& Technology, 2026) at Sorbonne University, specialized in the design and implementation of \textbf{programming languages}, \textbf{static typing} and \textbf{abstract interpretation}. I am most at home in \textbf{OCaml}, and ported the MOPSA static analyzer (OCaml/C/C++) to \textbf{WebAssembly} with a browser playground and a technical write-up. At Hexaglobe I built test strategies, CI/CD and AI-agent tooling spanning four stacks. I like building robust, well-typed software across the stack, from language internals to UI.
+Software engineer completing an MSc in Computer Science (Software Science \& Technology, 2026) at Sorbonne University, specialized in the design and implementation of \textbf{programming languages}, \textbf{static typing} and \textbf{abstract interpretation}. I am most at home in \textbf{OCaml}, and ported the MOPSA static analyzer (OCaml/C/C++) to \textbf{WebAssembly}. At Hexaglobe I built test strategies, CI/CD and AI-agent tooling spanning four stacks. I like building robust, well-typed software across the stack, from language internals to UI.
 
 %----------------------------------------
 %   PROJECTS
@@ -342,13 +342,14 @@ Software engineer completing an MSc in Computer Science (Software Science \& Tec
 }
 
 \cvevent{2026}{Reactant analyzer}{\href{https://github.com/rboudrouss/reactant-analyzer}{github.com/rboudrouss/reactant-analyzer}}{
-	{Designed and implemented an \textbf{abstract-interpretation}-based static analyzer in \textbf{Rust} for React web applications.}
+	{Designed and implemented an \textbf{abstract-interpretation}-based static analyzer in \textbf{Rust} ($\sim$30k lines, 500+ tests) that catches \textbf{React} hook bugs beyond the reach of syntactic linters, such as infinite render loops, derived state and unstable dependencies.},
+	{Evaluates components in abstract domains (intervals, constant sets, reference-stability tags) over a dedicated CFG-based IR and flags an infinite render loop when the state fixpoint \textbf{widens}. Ships as a CLI with JSON output for CI and a Rust plugin API.}
 }
 
 %----------------------------------------
 %   EDUCATION
 %----------------------------------------
-\vspace{-20pt}
+\vspace{-16pt}
 \cvsection{Education}
 
 \cvevent{2024 -- 2026}{MSc in Computer Science (Software Science \& Technology)}{Sorbonne University}{
@@ -356,13 +357,13 @@ Software engineer completing an MSc in Computer Science (Software Science \& Tec
 }
 
 \cvevent{2020 -- 2024}{BSc in Computer Science}{Sorbonne University}{
-    {Algorithms, data structures, computer architecture, operating systems, networks, databases, with team projects in C, Java, OCaml, Python and TypeScript.}
+    {Algorithms, data structures, computer architecture, operating systems, networks and databases.}
 }
 
 %----------------------------------------
 %   EXPERIENCE
 %----------------------------------------
-\vspace{-20pt}
+\vspace{-16pt}
 \cvsection{Experience}
 
 \cvevent{2025 -- 2026}{Quality Analyst Engineer (apprenticeship)}{Hexaglobe (video streaming)}{
@@ -375,14 +376,6 @@ Software engineer completing an MSc in Computer Science (Software Science \& Tec
 	{Built a \textbf{local-first} mobile web app (secure authentication, backend optimized for low-bandwidth clients) and the association's website, both running on a virtualized infrastructure I operated (Docker servers, CI/CD).},
 	{Led \textbf{100+ volunteers} as President for a cultural event welcoming 10,000+ visitors.}
 }
-
-%----------------------------------------
-%   SKILLS
-%----------------------------------------
-\vspace{-20pt}
-\cvsection{Skills}
-\textbf{Languages:} OCaml, TypeScript, Rust, Python, C, SQL, PHP \\
-\textbf{Topics:} functional programming, compilers \& interpreters, WebAssembly, testing \& GitLab CI/CD, Docker \& deployment automation
 
 %--------------------------------------------------------------------------------------------------
 %	ARTIFICIAL FOOTER (fancy footer cannot exceed linewidth)

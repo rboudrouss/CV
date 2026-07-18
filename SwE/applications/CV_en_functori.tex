@@ -328,7 +328,7 @@
 %   PROFILE
 %----------------------------------------
 \cvsection{Profile}
-Software engineer completing an MSc in Computer Science (Software Science \& Technology) at Sorbonne University, specialized in \textbf{static analysis}, \textbf{abstract interpretation} and the design of \textbf{programming languages} and their runtimes. I ported \textbf{MOPSA} (an abstract-interpretation analyzer for C and Python, in OCaml/C/C++) to \textbf{WebAssembly} with a browser playground, and built an abstract-interpretation-based analyzer in \textbf{Rust}. At Hexaglobe I brought zero-coverage legacy products to $\sim$3,000 tests with objective oracles and verification-gated AI agents. The common thread is building software people can trust.
+Software engineer completing an MSc in Computer Science (Software Science \& Technology) at Sorbonne University, specialized in \textbf{static analysis}, \textbf{abstract interpretation} and the design of \textbf{programming languages} and their runtimes. I ported \textbf{MOPSA} (OCaml/C/C++, abstract interpretation for C and Python) to \textbf{WebAssembly}, and built an abstract-interpretation-based analyzer in \textbf{Rust}. At Hexaglobe I brought zero-coverage legacy products to $\sim$3,000 tests with objective oracles and verification-gated AI agents. The common thread is building software people can trust.
 
 %----------------------------------------
 %   PROJECTS
@@ -342,7 +342,8 @@ Software engineer completing an MSc in Computer Science (Software Science \& Tec
 }
 
 \cvevent{2026}{Reactant analyzer}{\href{https://github.com/rboudrouss/reactant-analyzer}{github.com/rboudrouss/reactant-analyzer}}{
-	{Designed and implemented a static analyzer based on \textbf{abstract interpretation}, written in \textbf{Rust}, targeting React web applications.}
+	{Designed and implemented an \textbf{abstract-interpretation}-based static analyzer in \textbf{Rust} ($\sim$30k lines, 500+ tests) that catches \textbf{React} hook bugs beyond the reach of syntactic linters, such as infinite render loops, derived state and unstable dependencies.},
+	{Evaluates components in abstract domains (intervals, constant sets, reference-stability tags) over a dedicated CFG-based IR and flags an infinite render loop when the state fixpoint \textbf{widens}. Resolves and inlines custom hooks across files, with concrete semantics based on the React-tRace paper (OOPSLA 2025).}
 }
 
 %----------------------------------------
@@ -356,7 +357,7 @@ Software engineer completing an MSc in Computer Science (Software Science \& Tec
 }
 
 \cvevent{2020 -- 2024}{BSc in Computer Science}{Sorbonne University}{
-    {Algorithms, computer architecture, operating systems, networks, databases, functional and object-oriented programming, with team projects in C, Java, OCaml, Python and TypeScript.}
+    {Algorithms, computer architecture, operating systems, networks, databases and functional programming.}
 }
 
 %----------------------------------------
@@ -374,14 +375,6 @@ Software engineer completing an MSc in Computer Science (Software Science \& Tec
 \cvevent{2023 -- 2026}{Technical Lead, then President (2024--25)}{Association Play Sorbonne Université}{
 	{Designed and operated a virtualized \textbf{infrastructure} (Docker servers, CI/CD, networking) and built a \textbf{local-first} mobile web app. As president, led \textbf{100+ volunteers} for a cultural event welcoming 10,000+ visitors.}
 }
-
-%----------------------------------------
-%   SKILLS
-%----------------------------------------
-\vspace{-12pt}
-\cvsection{Skills}
-\textbf{Languages:} OCaml, Rust, TypeScript, Python, C, Java, SQL \\
-\textbf{Topics:} static analysis \& abstract interpretation, WebAssembly \& Emscripten, concurrency \& distributed systems, GitLab CI/CD, Docker
 
 %--------------------------------------------------------------------------------------------------
 %	ARTIFICIAL FOOTER (fancy footer cannot exceed linewidth)
