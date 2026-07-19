@@ -305,7 +305,7 @@
 \vspace{-8pt}
 \begin{center}
     {\HUGE \textsc{Boudrouss Réda} \textcolor{sectcol}{\rule[-1mm]{1mm}{0.9cm}} \textsc{CV}}\\[2pt]
-    {\small Software Engineer -- OCaml, WebAssembly \& Static Analysis -- Paris}
+    {\small Software Engineer | OCaml, WebAssembly \& Static Analysis}
 \end{center}
 
 \vspace{6pt}
@@ -316,7 +316,7 @@
 \metasection{\href{https://github.com/rboudrouss}{github.com/rboudrouss}}{}
 \metasection{\href{https://www.linkedin.com/in/rboudrouss}{linkedin.com/in/rboudrouss}}{}
 \metasection{\href{mailto:contact@rboud.com}{contact@rboud.com}}{}
-\metasection{\href{https://rboud.com}{rboud.com}}{}
+\metasection{\href{https://rboud.com}{rboud.com}}{\textbf{Location:} Paris, France}
 \metasection{+33 (0)7 55 78 85 16}{\textbf{Languages:} French (Native), English (Professional), Arabic (Conversational)}
 
 \vspace{-15pt}
@@ -328,7 +328,7 @@
 %   PROFILE
 %----------------------------------------
 \cvsection{Profile}
-Software engineer completing an MSc in Computer Science (Software Science \& Technology) at Sorbonne University, specialized in \textbf{static analysis}, \textbf{abstract interpretation} and the implementation of \textbf{programming languages} and their runtimes. I ported \textbf{MOPSA}, an OCaml/C/C++ abstract-interpretation analyzer, to \textbf{WebAssembly}, which took me deep into the OCaml \textbf{runtime}, its C FFI and float semantics on Wasm.
+Software engineer completing an MSc in Computer Science (Software Science \& Technology) at Sorbonne University, specialized in \textbf{static analysis}, and \textbf{Web technologies}. I ported \textbf{MOPSA}, an OCaml/C/C++ abstract-interpretation analyzer, to \textbf{WebAssembly}, which took me deep into the OCaml \textbf{runtime}, its C FFI and float semantics on Wasm.
 
 %----------------------------------------
 %   PROJECTS
@@ -338,7 +338,7 @@ Software engineer completing an MSc in Computer Science (Software Science \& Tec
 \cvevent{2026}{Mopsa-wasm}{\href{https://github.com/rboudrouss/mopsa-emcc}{github.com/rboudrouss/mopsa-emcc}}{
 	{Compiled the \textbf{OCaml runtime} and the full native stack of \textbf{MOPSA} (Clang frontend, Apron, GMP, MPFR) into a single static \textbf{WebAssembly} module with Emscripten, an approach chosen over js\_of\_ocaml and wasm\_of\_ocaml because it brings the C/C++ half of the codebase along.},
 	{Replaced the \textbf{runtime}'s dynamic FFI loading with a generated static table of \textbf{$\sim$1,400 C primitives}, and root-caused an unsigned-wraparound bug in the \texttt{Tag\_val} macro, a native-vs-Wasm semantics mismatch that traps under Wasm's bounds-checked addressing.},
-	{Addressed the \textbf{soundness} hazard of Wasm's fixed rounding mode (no \texttt{fesetround}) by recompiling Apron's numerical domains to use exact GMP rationals.},
+	{Addressed the \textbf{soundness} hazard of Wasm's environment, such as  fixed rounding mode (no \texttt{fesetround}).},
 	{Shipped a fully client-side \href{https://mopsawasm.rboud.com}{playground} (Web Workers around a non-reentrant runtime, blocking stdin over SharedArrayBuffer + Atomics for the interactive REPL and DAP modes) and a technical \href{https://rboud.com/blog/running-mopsa-in-the-browser/}{write-up}.}
 }
 
@@ -347,19 +347,7 @@ Software engineer completing an MSc in Computer Science (Software Science \& Tec
 	{Evaluates components in abstract domains (intervals, constant sets, reference-stability tags) over a dedicated CFG-based IR and flags an infinite render loop when the state fixpoint \textbf{widens}. Resolves and inlines custom hooks across files, with concrete semantics based on the React-tRace paper (OOPSLA 2025).}
 }
 
-%----------------------------------------
-%   EDUCATION
-%----------------------------------------
-\vspace{-16pt}
-\cvsection{Education}
 
-\cvevent{2024 -- 2026}{MSc in Computer Science (Software Science \& Technology)}{Sorbonne University}{
-    {Coursework: compiler construction, design \& implementation of \textbf{programming languages} and their runtimes (interpreters vs.\ compilers), formal semantics, \textbf{type systems} and \textbf{static analysis by abstract interpretation} (course led by Antoine Miné), concurrent \& distributed programming.}
-}
-
-\cvevent{2020 -- 2024}{BSc in Computer Science}{Sorbonne University}{
-    {Algorithms, computer architecture, operating systems, networks, databases and functional programming.}
-}
 
 %----------------------------------------
 %   EXPERIENCE
@@ -367,7 +355,7 @@ Software engineer completing an MSc in Computer Science (Software Science \& Tec
 \vspace{-16pt}
 \cvsection{Experience}
 
-\cvevent{2025 -- 2026}{Quality Analyst Engineer (apprenticeship)}{Hexaglobe (video streaming)}{
+\cvevent{2025 -- 2026}{Quality Analyst Engineer (apprenticeship)}{Hexaglobe}{
 	{Designed complete \textbf{test strategies} (unit, integration, E2E) for legacy products with no prior coverage, reaching \textbf{$\sim$3,000 test cases} across 4 stacks (TypeScript, Python, PHP, JS), partly through AI-agent test production under versioned guardrails and systematic human review.},
 	{Built objective \textbf{quality oracles} (VMAF, black-frame/freeze detection, audio analysis) with ffmpeg to validate a live video encoder.},
 	{Built complete \textbf{GitLab CI/CD} pipelines and shared CI components (npm publishing, centralized Allure reporting) consumed by 4+ repositories.}
@@ -375,6 +363,21 @@ Software engineer completing an MSc in Computer Science (Software Science \& Tec
 
 \cvevent{2023 -- 2026}{Technical Lead, then President (2024--25)}{Association Play Sorbonne Université}{
 	{Designed and operated a virtualized \textbf{infrastructure} (Docker servers, CI/CD, networking) and built a \textbf{local-first} mobile web app. As president, led \textbf{100+ volunteers} for a cultural event welcoming 10,000+ visitors.}
+}
+
+
+%----------------------------------------
+%   EDUCATION
+%----------------------------------------
+\vspace{-16pt}
+\cvsection{Education}
+
+\cvevent{2024 -- 2026}{MSc in Computer Science (Software Science \& Technology)}{Sorbonne University}{
+    {Coursework: compiler construction, design \& implementation of \textbf{programming languages} and their runtimes (interpreters vs.\ compilers), formal semantics, \textbf{type systems} and \textbf{static analysis by abstract interpretation}, concurrent \& distributed programming.}
+}
+
+\cvevent{2020 -- 2024}{BSc in Computer Science}{Sorbonne University}{
+    {Algorithms, computer architecture, operating systems, networks, databases and functional programming.}
 }
 
 %--------------------------------------------------------------------------------------------------
