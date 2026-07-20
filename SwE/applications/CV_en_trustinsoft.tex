@@ -305,7 +305,7 @@
 \vspace{-8pt}
 \begin{center}
     {\HUGE \textsc{Boudrouss Réda} \textcolor{sectcol}{\rule[-1mm]{1mm}{0.9cm}} \textsc{CV}}\\[2pt]
-    {\small AI Engineer -- LLM Agents, Verification \& Static Analysis -- Paris}
+    {\small AI Engineer | LLM Agents, Verification \& Static Analysis}
 \end{center}
 
 \vspace{6pt}
@@ -315,8 +315,8 @@
 %----------------------------------------
 \metasection{\href{https://github.com/rboudrouss}{github.com/rboudrouss}}{}
 \metasection{\href{https://www.linkedin.com/in/rboudrouss}{linkedin.com/in/rboudrouss}}{}
-\metasection{\href{mailto:contact@rboud.com}{contact@rboud.com}}{}
-\metasection{\href{https://rboud.com}{rboud.com}}{}
+\metasection{\href{mailto:contact@rboud.com}{contact@rboud.com}}{\textbf{Availability:} from October 2026}
+\metasection{\href{https://rboud.com}{rboud.com}}{\textbf{Location:} Paris, France}
 \metasection{+33 (0)7 55 78 85 16}{\textbf{Languages:} French (Native), English (Professional), Arabic (Conversational)}
 
 \vspace{-15pt}
@@ -328,18 +328,19 @@
 %   PROFILE
 %----------------------------------------
 \cvsection{Profile}
-At Hexaglobe I industrialized LLM-agent test generation with sandboxed \textbf{multi-agent orchestration}, versioned \textbf{guardrails}, mandatory green tests and systematic human review, so that no AI output is trusted without \textbf{verification}. I also bring a \textbf{formal-methods} background from Sorbonne University, where I studied \textbf{abstract interpretation} and program verification, ported the \textbf{MOPSA} analyzer (OCaml/C/C++) to WebAssembly and wrote an abstract-interpretation-based analyzer in \textbf{Rust}. I would like to combine both sides at TrustInSoft, backing AI productivity with sound analysis.
+At Hexaglobe I industrialized LLM-agent test generation, with sandboxed \textbf{multi-agent orchestration}, versioned guardrails, mandatory green tests and human review of every AI output. I also have a \textbf{formal-methods} background from Sorbonne University, where I studied \textbf{abstract interpretation}, ported the \textbf{MOPSA} analyzer (OCaml/C/C++) to WebAssembly and wrote an abstract-interpretation analyzer in Rust. At TrustInSoft I want to combine the two and back AI productivity with sound analysis.
 
 %----------------------------------------
 %   EXPERIENCE
 %----------------------------------------
+\vspace{-8pt}
 \cvsection{Experience}
 
-\cvevent{2025 -- 2026}{Quality Analyst Engineer (apprenticeship)}{Hexaglobe (video streaming)}{
-	{\textbf{Industrialized AI-assisted development} in an enterprise environment, building a specification-to-execution loop (PRDs, issues, \textbf{multi-agent orchestration} in Docker sandboxes with planner, implementer and reviewer agents) that produced \textbf{$\sim$720 integration tests in 3 days} under systematic human review.},
-	{Designed the \textbf{prompting strategies and guardrails} that make delegation reliable. Every AI contribution has to pass mandatory green tests, follow versioned and codified agent rules, and stay fully traceable.},
-	{Built the verification foundation first, writing \textbf{$\sim$1,400 test cases} by hand (Playwright, Jest, pytest, PHPUnit) for zero-coverage legacy products across 4 stacks (TypeScript, Python, PHP, JS).},
-	{Developed objective \textbf{quality oracles} (VMAF, black-frame/freeze detection, audio analysis) to validate a live video encoder, plus shared \textbf{GitLab CI/CD} components (centralized Allure reporting) consumed by 4+ repositories.}
+\cvevent{2025 -- 2026}{Quality Analyst Engineer (apprenticeship)}{Hexaglobe}{
+	{Industrialized \textbf{AI-assisted development} in an enterprise environment. Built a specification-to-execution loop (PRDs, issues, multi-agent orchestration in Docker sandboxes with planner, implementer and reviewer agents) that produced $\sim$720 integration tests in 3 days, all human-reviewed.},
+	{Wrote the \textbf{prompting strategies and guardrails} behind this delegation. Every AI contribution must pass green tests, follow versioned agent rules and stay traceable.},
+	{Wrote $\sim$1,400 \textbf{test cases} by hand first (Playwright, Jest, pytest, PHPUnit) for zero-coverage legacy products across 4 stacks (TypeScript, Python, PHP, JS).},
+	{Developed \textbf{quality oracles} (VMAF, black-frame/freeze detection, audio analysis) to validate a live video encoder, and shared GitLab CI/CD components (centralized Allure reporting) used by 4+ repositories.}
 }
 
 \cvevent{2023 -- 2026}{Technical Lead \& President (2024--25)}{Association Play Sorbonne Université}{
@@ -349,19 +350,28 @@ At Hexaglobe I industrialized LLM-agent test generation with sandboxed \textbf{m
 %----------------------------------------
 %   PROJECTS
 %----------------------------------------
-\vspace{-12pt}
+\vspace{-16pt}
 \cvsection{Projects}
-$\cdot$ \href{https://github.com/rboudrouss/mopsa-emcc}{\textbf{Mopsa-wasm}}: ported \textbf{MOPSA}, a sound \textbf{abstract-interpretation} static analyzer for C and Python developed at LIP6 (\textbf{OCaml}/C/C++), to \textbf{WebAssembly}, with a fully client-side \href{https://mopsawasm.rboud.com}{playground} and a technical \href{https://rboud.com/blog/running-mopsa-in-the-browser/}{write-up}. \\
-$\cdot$ \href{https://github.com/rboudrouss/reactant-analyzer}{\textbf{Reactant analyzer}}: a static analyzer in \textbf{Rust} ($\sim$30k lines, 500+ tests) that detects React hook bugs (infinite render loops, derived state) by \textbf{abstract interpretation} over a CFG-based IR, flagging a loop when the state fixpoint \textbf{widens}.
+
+\cvevent{2026}{Reactant analyzer}{\href{https://github.com/rboudrouss/reactant-analyzer}{github.com/rboudrouss/reactant-analyzer}}{
+	{Wrote a static analyzer in \textbf{Rust} ($\sim$30k lines, 500+ tests) that catches \textbf{React} hook bugs syntactic linters miss, like infinite render loops, derived state and unstable dependencies.},
+	{Evaluates components in abstract domains (intervals, constant sets, reference-stability tags) over a CFG-based IR and reports an infinite render loop when the state fixpoint \textbf{widens} instead of converging.},
+	{Resolves and inlines custom hooks across files. The concrete semantics follow the React-tRace paper (OOPSLA 2025).}
+}
+
+\cvevent{2026}{Mopsa-wasm}{\href{https://github.com/rboudrouss/mopsa-emcc}{github.com/rboudrouss/mopsa-emcc}}{
+	{Ported \textbf{MOPSA}, a sound abstract-interpretation static analyzer for C and Python developed at LIP6 (\textbf{OCaml}/C/C++), to \textbf{WebAssembly}. Compiled the OCaml runtime and the full native stack (Clang frontend, Apron, GMP, MPFR) into a single static module and replaced the runtime's dynamic FFI loading with a generated table of $\sim$1,400 C primitives.},
+	{Preserved \textbf{soundness} in the Wasm environment (fixed rounding mode, no \texttt{fesetround}). Shipped a fully client-side \href{https://mopsawasm.rboud.com}{playground} and a technical \href{https://rboud.com/blog/running-mopsa-in-the-browser/}{write-up}.}
+}
 
 %----------------------------------------
 %   EDUCATION
 %----------------------------------------
-\vspace{-4pt}
+\vspace{-16pt}
 \cvsection{Education}
 
 \cvevent{2024 -- 2026}{MSc in Computer Science (Software Science \& Technology)}{Sorbonne University}{
-    {Coursework: \textbf{static analysis by abstract interpretation} and type systems (course led by Antoine Miné, MOPSA project lead), program specification \& \textbf{formal verification}, inference of numerical properties, compiler construction, concurrent programming.}
+    {Coursework: \textbf{static analysis by abstract interpretation} and type systems, program specification \& \textbf{formal verification}, inference of numerical properties, compiler construction, concurrent programming.}
 }
 
 \cvevent{2020 -- 2024}{BSc in Computer Science}{Sorbonne University}{
