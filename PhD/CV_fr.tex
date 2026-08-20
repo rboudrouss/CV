@@ -295,24 +295,8 @@
 %============================================================================%
 \begin{document}
 
-
 %use our custom fancy header definitions
-\pagestyle{fancy}	
-
-
-
-
-
-%----------------------------------------------------------------------------------------
-%	HEADER IMAGE
-%----------------------------------------------------------------------------------------
-
-%\begin{figure}[H]
-%\begin{flushright}
-%	\includegraphics[trim= 320 130 460 210,clip,width=0.2\linewidth]{myfoto.jpg}	%trimming relative to image size!
-%\end{flushright}
-%\end{figure}
-
+\pagestyle{fancy}
 
 %---------------------------------------------------------------------------------------
 %	TITLE HEADLINE
@@ -321,7 +305,7 @@
 \vspace{-8pt}
 \begin{center}
     {\HUGE \textsc{Boudrouss Réda} \textcolor{sectcol}{\rule[-1mm]{1mm}{0.9cm}} \textsc{CV}}\\[2pt]
-    {\small M2 Sciences et Technologie du Logiciel à Sorbonne Université}
+    {\small Candidat en thèse \textbf{CIFRE} -- Analyse statique \& interprétation abstraite -- Paris}
 \end{center}
 
 \vspace{6pt}
@@ -344,83 +328,60 @@
 %   RÉSUMÉ
 %----------------------------------------
 \cvsection{Résumé}
-Actuellement en Master Science et technologie du logiciel à Sorbonne Université, je souhaite poursuivre en \textbf{doctorat} encadré par \href{https://mine.perso.lip6.fr/index.html.fr}{\textbf{Antoine Miné}} sur des thématiques liées à l'\textbf{analyse statique}, avec un intérêt particulier pour \textbf{l'interprétation abstraite}, \textbf{WebAssembly}, \textbf{Rust} et les langages dynamiques tel que \textbf{JavaScript}. \\
-Je recherche actuellement une entreprise partenaire dans le cadre d'un projet de thèse \textbf{CIFRE}.
+En M2 Sciences et Technologie du Logiciel à Sorbonne Université, je recherche une \textbf{entreprise partenaire pour une thèse CIFRE} en \textbf{analyse statique}, encadrée par \href{https://mine.perso.lip6.fr/index.html.fr}{\textbf{Antoine Miné}} (LIP6) : \textbf{interprétation abstraite} appliquée à \textbf{WebAssembly}, \textbf{Rust} et aux langages dynamiques comme \textbf{JavaScript}. J'ai porté l'analyseur \textbf{MOPSA} (OCaml/C/C++) vers WebAssembly et écrit un analyseur par interprétation abstraite en Rust. Mon alternance chez Hexaglobe m'a donné une pratique concrète de la \textbf{vérification logicielle en contexte industriel}.
 
-%============================================================================%
-%                            FORMATION                                     %
-%============================================================================%
-
+%----------------------------------------
+%   FORMATION
+%----------------------------------------
 \cvsection{Formation}
 
 \cvevent{2024 -- 2026}{Master Science et Technologie du Logiciel}{Sorbonne Université}{
-    {Formation en \textbf{analyse statique}, typage statique et \textbf{interprétation abstraite}, avec étude de l'inférence de propriétés numériques pour la vérification formelle des programmes.},
-    {Conception et implémentation de \textbf{langages de programmation} et de leurs mécanismes d'exécution, développement de fonctionnalités de haut niveau, comparaison entre \textbf{interpréteur} et \textbf{compilateur}.},
-    {Travaux en \textbf{concurrence}, \textbf{programmation répartie} et architectures Web, avec une sensibilité aux problématiques de \textbf{fiabilité logicielle}, de performance et d'outillage autour des environnements modernes d'exécution.}
+    {Cours suivis : \textbf{interprétation abstraite} et systèmes de types (cours d'Antoine Miné), inférence de propriétés numériques, \textbf{vérification formelle}, typage statique, conception et implémentation de \textbf{langages de programmation} et de leurs environnements d'exécution (interpréteurs, compilateurs), \textbf{concurrence} et programmation répartie.}
 }
 
 \cvevent{2020 -- 2024}{Licence Informatique}{Sorbonne Université}{
-    {Formation en algorithmique, architecture des ordinateurs, systèmes d'exploitation, réseaux, bases de données, programmation fonctionnelle et orientée objet.},
-    {Réalisation de nombreux \textbf{projets collectifs} pour mettre en pratique les enseignements, dans divers langages (C, Java, OCaml, Python, TypeScript...).}
+    {Algorithmique, architecture des ordinateurs, systèmes d'exploitation, réseaux, bases de données, programmation fonctionnelle.}
 }
 
+%----------------------------------------
+%   PROJETS
+%----------------------------------------
+\vspace{-22pt}
+\cvsection{Projets}
 
-%---------------------------------------------------------------------------------------
-%	EDUCATION SECTION
-%--------------------------------------------------------------------------------------
-\vspace{-20pt}
+\cvevent{2026}{Mopsa-wasm}{\href{https://github.com/rboudrouss/mopsa-emcc}{github.com/rboudrouss/mopsa-emcc}}{
+	{Portage de \textbf{MOPSA}, analyseur statique par \textbf{interprétation abstraite} pour C et Python écrit en \textbf{OCaml}/C/C++ au LIP6, vers \textbf{WebAssembly} : compilation Emscripten du runtime OCaml et de toute la pile native (frontend Clang, \textbf{Apron}, GMP, MPFR) en un module Wasm statique unique.},
+	{Travail des deux côtés de la frontière \textbf{runtime OCaml / FFI C} : table statique d'environ 1 400 primitives C (pas de \texttt{dlopen} en Wasm), correction d'un bug de dépassement non signé dans la macro \texttt{Tag\_val}. Traitement du risque de \textbf{correction} lié au mode d'arrondi figé de Wasm en recompilant les domaines numériques d'Apron sur des rationnels exacts GMP. Publication d'un \href{https://mopsawasm.rboud.com}{playground} côté client et d'un \href{https://rboud.com/blog/running-mopsa-in-the-browser/}{article technique}.}
+}
+
+\cvevent{2026}{Reactant analyzer}{\href{https://github.com/rboudrouss/reactant-analyzer}{github.com/rboudrouss/reactant-analyzer}}{
+	{Conception et implémentation d'un analyseur statique par \textbf{interprétation abstraite} en \textbf{Rust} (environ 30k lignes, 500+ tests) détectant des bugs de hooks \textbf{React} hors de portée des linters syntaxiques : boucles de rendu infinies, état dérivé, dépendances instables.},
+	{Évaluation des composants dans des domaines abstraits (intervalles, ensembles de constantes, étiquettes de stabilité référentielle) sur une IR dédiée à base de CFG  : une boucle de rendu infinie est signalée lorsque le point fixe sur l'état \textbf{élargit}. Sémantique concrète fondée sur l'article React-tRace (OOPSLA 2025).}
+}
+
+%----------------------------------------
+%   EXPÉRIENCES
+%----------------------------------------
+\vspace{-22pt}
 \cvsection{Expériences}
 
-\cvevent{2025 -- 2026}{Quality Analyst}{Hexaglobe}{
-	{Conception de systèmes de \textbf{vérification} et de \textbf{contrôle de qualité} uniques pour chaque projet, afin de garantir la fiabilité et la cohérence des développements.},
-	{Automatisation des déploiements et des tests.},
-	{Intégration d'outils d'\textbf{analyse statique} et de contrôle de qualité dans la CI/CD.}
+\cvevent{2025 -- 2026}{Quality Analyst Engineer (alternance)}{Hexaglobe (streaming vidéo)}{
+	{Conception de \textbf{stratégies de test} complètes (unitaires, intégration, E2E) pour des produits legacy sans aucune couverture, jusqu'à environ \textbf{3 000 cas de test} sur 4 stacks (TypeScript, Python, PHP, JS).},
+	{Développement d'\textbf{oracles de qualité objectifs} (VMAF, détection de trames noires et de gels d'image, analyse audio) pour valider un encodeur vidéo live.},
+	{Industrialisation d'une production de tests par \textbf{agents IA} conditionnée à des signaux de vérification déterministes (orchestration multi-agents en sandbox Docker, garde-fous versionnés, tests verts obligatoires, relecture humaine) : environ 720 tests d'intégration en 3 jours.},
+	{Pipelines \textbf{GitLab CI/CD} et composants CI mutualisés utilisés par 4+ dépôts, avec intégration d'outils d'\textbf{analyse statique} dans la chaîne.}
 }
 
-
-\cvevent{2023 -- 2026}{Responsable Technique}{Association Play Sorbonne Université}{
-    {Conception et déploiement d'une \textbf{infrastructure virtualisée} : serveurs Docker, orchestration CI/CD, configuration réseau et gestion de Google Workspace (mails centralisés).},
-    {Création et optimisation du site vitrine (\textbf{9 000 visiteurs uniques} en 2025) : architecture responsive, \textbf{SEO} et suivi analytics.},
-    {Développement d'une Web App mobile et \textbf{local-first} pour le suivi de quêtes : \textbf{authentification sécurisée}, architecture back-end optimisée pour clients à faible débit réseau et base de données performante pour hauts trafics.}
+\cvevent{2023 -- 2026}{Responsable technique, puis Président (2024--25)}{Association Play Sorbonne Université}{
+	{Conception et exploitation d'une \textbf{infrastructure virtualisée} (Docker, CI/CD, réseau) et développement d'une web app mobile \textbf{local-first}. Comme président, encadrement de \textbf{100+ bénévoles} pour un événement accueillant 10 000+ visiteurs.}
 }
-
-\cvevent{2024 -- 2025}{Président}{Association Play Sorbonne Université}{
-	{Définition et coordination de la \textbf{stratégie globale}, supervision des projets, animation de l'équipe autour d'objectifs communs et représentation de l'association.},
-	{Organisation d'une équipe de plus de \textbf{100 bénévoles} et contribution à la réussite d'un événement culturel ayant accueilli plus de \textbf{10 000 visiteurs}.}
-}
-
-\vspace{-20pt}
-\cvsection{Projets}
-$\cdot$ \href{https://github.com/rboudrouss/mopsa-emcc}{\textbf{Mopsa-wasm}} : Portage de l'analyseur MOPSA en \textbf{WebAssembly} avec une interface web. Mopsa est un analyseur pour du code C et Python basé sur l'interprétation abstraite, développé en \textbf{OCaml, C et C++.} \\
-$\cdot$ \href{https://github.com/rboudrouss/reactant-analyzer}{\textbf{Reactant analyzer}} : implémentation d'un analyseur basé sur l'\textbf{interprétation abstraite} en \textbf{Rust} pour analyser des applications Web qui utilisent la bibliothèque \textbf{React}.
-
-
-
-%\vspace{-15pt}
-%\cvsection{Compétences}
-
-%\textbf{Langage :} Typescript, Java, Python, Ocaml, SQL, C, Go \\
-%\textbf{Méthodes :} TDD \& Model-based Testing, analyse statique de code, Design by Contract, DevOps \& Infrastructure \\
-%\textbf{Technologie :} React, Next.js, Docker, tRPC, Tailwind, PostegresQL, Express, Git/Github, CI/CD, \\
-%\textbf{Hobbies :} Conférence tech, talks, Gamejam, Hackaton
-
 
 %--------------------------------------------------------------------------------------------------
-%	ARTIFICIAL FOOTER (fancy footer cannot exceed linewidth) 
+%	ARTIFICIAL FOOTER (fancy footer cannot exceed linewidth)
 %--------------------------------------------------------------------------------------------------
 
 \null
 \vspace*{\fill}
 \hspace{-0.25\linewidth}\colorbox{white}{\makebox[1.5\linewidth][c]{\mystrut  \textnormal{\textcolor{sectcol}{\href{https://www.linkedin.com/in/rboudrouss}{linkedin.com/in/rboudrouss}} $\cdot$ \textcolor{sectcol}{\href{https://github.com/rboudrouss}{github.com/rboudrouss}}}}}
 
-
-%============================================================================%
-%
-%
-%
-%	DOCUMENT END
-%
-%
-%
-%============================================================================%
 \end{document}

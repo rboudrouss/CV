@@ -295,24 +295,8 @@
 %============================================================================%
 \begin{document}
 
-
 %use our custom fancy header definitions
-\pagestyle{fancy}	
-
-
-
-
-
-%----------------------------------------------------------------------------------------
-%	HEADER IMAGE
-%----------------------------------------------------------------------------------------
-
-%\begin{figure}[H]
-%\begin{flushright}
-%	\includegraphics[trim= 320 130 460 210,clip,width=0.2\linewidth]{myfoto.jpg}	%trimming relative to image size!
-%\end{flushright}
-%\end{figure}
-
+\pagestyle{fancy}
 
 %---------------------------------------------------------------------------------------
 %	TITLE HEADLINE
@@ -321,13 +305,13 @@
 \vspace{-8pt}
 \begin{center}
     {\HUGE \textsc{Boudrouss Réda} \textcolor{sectcol}{\rule[-1mm]{1mm}{0.9cm}} \textsc{CV}}\\[2pt]
-    {\small MSc in Software Science and Technology at Sorbonne University}
+    {\small \textbf{CIFRE} PhD candidate -- Static analysis \& abstract interpretation -- Paris}
 \end{center}
 
 \vspace{6pt}
 
 %----------------------------------------
-%   MÉTADONNÉES
+%   METADATA
 %----------------------------------------
 \metasection{\href{https://github.com/rboudrouss}{github.com/rboudrouss}}{}
 \metasection{\href{https://www.linkedin.com/in/rboudrouss}{linkedin.com/in/rboudrouss}}{}
@@ -341,86 +325,64 @@
 \normalsize
 
 %----------------------------------------
-%   RÉSUMÉ
+%   PROFILE
 %----------------------------------------
 \cvsection{Profile}
-Currently completing a Master's in Software Science and Technology at Sorbonne University, I aim to pursue a \textbf{PhD} supervised by \href{https://mine.perso.lip6.fr/index.html.fr}{\textbf{Antoine Miné}} on topics related to \textbf{static analysis}, with a particular interest in \textbf{abstract interpretation}, \textbf{WebAssembly}, \textbf{Rust} and dynamic languages like \textbf{JavaScript}. \\
-I am currently looking for a partner company within the framework of an industrial PhD (\textbf{CIFRE}) project.
+Completing an MSc in Software Science and Technology at Sorbonne University, I am looking for a \textbf{partner company for an industrial PhD (CIFRE)} in \textbf{static analysis}, supervised by \href{https://mine.perso.lip6.fr/index.html.fr}{\textbf{Antoine Miné}} (LIP6), on \textbf{abstract interpretation} applied to \textbf{WebAssembly}, \textbf{Rust} and dynamic languages such as \textbf{JavaScript}. I ported the \textbf{MOPSA} analyzer (OCaml/C/C++) to WebAssembly and wrote an abstract-interpretation-based analyzer in Rust. My apprenticeship at Hexaglobe gave me hands-on experience of \textbf{software verification in an industrial setting}.
 
-%============================================================================%
-%                            FORMATION                                     %
-%============================================================================%
-
+%----------------------------------------
+%   EDUCATION
+%----------------------------------------
 \cvsection{Education}
 
-\cvevent{2024 -- 2026}{Master's in Software Science and Technology}{Sorbonne University}{
-    {Training in \textbf{static analysis}, static typing and \textbf{abstract interpretation}, including the inference of numerical properties for the formal verification of programs.},
-    {Design and implementation of \textbf{programming languages} and their execution mechanisms, development of high-level features, comparison between \textbf{interpreters} and \textbf{compilers}.},
-    {Work on \textbf{concurrency}, \textbf{distributed programming} and Web architectures, with a focus on \textbf{software reliability}, performance and tooling around modern runtime environments.}
+\cvevent{2024 -- 2026}{MSc in Software Science and Technology}{Sorbonne University}{
+    {Coursework: \textbf{abstract interpretation} and type systems (course led by Antoine Miné), inference of numerical properties, \textbf{formal program verification}, static typing, design and implementation of \textbf{programming languages} and their runtimes (interpreters, compilers), \textbf{concurrent} and distributed programming.}
 }
 
-\cvevent{2020 -- 2024}{Bachelor's in Computer Science}{Sorbonne University}{
-    {Training in algorithms, computer architecture, operating systems, networks, databases, functional and object-oriented programming.},
-    {Completion of numerous \textbf{team projects} to put the coursework into practice, in various languages (C, Java, OCaml, Python, TypeScript...).}
+\cvevent{2020 -- 2024}{BSc in Computer Science}{Sorbonne University}{
+    {Algorithms, computer architecture, operating systems, networks, databases and functional programming.}
 }
 
+%----------------------------------------
+%   PROJECTS
+%----------------------------------------
+\vspace{-16pt}
+\cvsection{Projects}
 
-%---------------------------------------------------------------------------------------
-%	EDUCATION SECTION
-%--------------------------------------------------------------------------------------
-\vspace{-20pt}
+\cvevent{2026}{Mopsa-wasm}{\href{https://github.com/rboudrouss/mopsa-emcc}{github.com/rboudrouss/mopsa-emcc}}{
+	{Ported \textbf{MOPSA}, an \textbf{abstract-interpretation} static analyzer for C and Python written in \textbf{OCaml}/C/C++ at LIP6, to \textbf{WebAssembly}, compiling the OCaml runtime and the full native stack (Clang frontend, \textbf{Apron}, GMP, MPFR) into a single static Wasm module with Emscripten.},
+	{Worked on both sides of the \textbf{OCaml runtime / C FFI} boundary, generating a static table of $\sim$1,400 C primitives (no \texttt{dlopen} on Wasm) and fixing an unsigned-wraparound bug in the runtime's \texttt{Tag\_val} macro. Recompiled Apron's numerical domains to use exact GMP rationals, addressing the \textbf{soundness} hazard of Wasm's fixed rounding mode.},
+	{Shipped a fully client-side \href{https://mopsawasm.rboud.com}{playground} and a technical \href{https://rboud.com/blog/running-mopsa-in-the-browser/}{write-up}.}
+}
+
+\cvevent{2026}{Reactant analyzer}{\href{https://github.com/rboudrouss/reactant-analyzer}{github.com/rboudrouss/reactant-analyzer}}{
+	{Designed and implemented an \textbf{abstract-interpretation}-based static analyzer in \textbf{Rust} ($\sim$30k lines, 500+ tests) that catches \textbf{React} hook bugs beyond the reach of syntactic linters, such as infinite render loops, derived state and unstable dependencies.},
+	{Evaluates components in abstract domains (intervals, constant sets, reference-stability tags) over a dedicated CFG-based IR and flags an infinite render loop when the state fixpoint \textbf{widens}. Concrete semantics based on the React-tRace paper (OOPSLA 2025).}
+}
+
+%----------------------------------------
+%   EXPERIENCE
+%----------------------------------------
+\vspace{-16pt}
 \cvsection{Experience}
 
-\cvevent{2025 -- 2026}{Quality Analyst}{Hexaglobe}{
-	{Design of \textbf{verification} and \textbf{quality-control} systems tailored to each project, to ensure the reliability and consistency of developments.},
-	{Automation of deployments and testing.},
-	{Integration of \textbf{static analysis} and quality-control tools into the CI/CD pipeline.}
+\cvevent{2025 -- 2026}{Quality Analyst Engineer (apprenticeship)}{Hexaglobe (video streaming)}{
+	{Designed complete \textbf{test strategies} (unit, integration, E2E) for zero-coverage legacy products, reaching \textbf{$\sim$3,000 test cases} across 4 stacks (TypeScript, Python, PHP, JS).},
+	{Built objective \textbf{quality oracles} (VMAF, black-frame/freeze detection, audio analysis) to automatically validate a live video encoder.},
+	{Industrialized \textbf{AI-agent test production} gated by deterministic verification signals (sandboxed multi-agent orchestration in Docker, versioned guardrails, mandatory green tests, systematic human review), producing $\sim$720 integration tests in 3 days.},
+	{Built \textbf{GitLab CI/CD} pipelines and shared CI components consumed by 4+ repositories, wiring \textbf{static analysis} tools into the chain.}
 }
 
-
-\cvevent{2023 -- 2026}{Technical Lead}{Play Sorbonne University Association}{
-    {Design and deployment of a \textbf{virtualized infrastructure}: Docker servers, CI/CD orchestration, network configuration and Google Workspace management (centralized email).},
-    {Creation and optimization of the showcase website (\textbf{9,000 unique visitors} in 2025): responsive architecture, \textbf{SEO} and analytics tracking.},
-    {Development of a mobile, \textbf{local-first} Web App for quest tracking: \textbf{secure authentication}, back-end architecture optimized for low-bandwidth clients and a high-performance database for high traffic.}
+\cvevent{2023 -- 2026}{Technical Lead, then President (2024--25)}{Play Sorbonne Université Association}{
+	{Designed and operated a \textbf{virtualized infrastructure} (Docker servers, CI/CD, networking) and built a \textbf{local-first} mobile web app. As president, led \textbf{100+ volunteers} for a cultural event welcoming 10,000+ visitors.}
 }
-
-\cvevent{2024 -- 2025}{President}{Play Sorbonne University Association}{
-	{Definition and coordination of the \textbf{overall strategy}, project supervision, leading the team toward shared goals and representing the association.},
-	{Organization of a team of over \textbf{100 volunteers} and contribution to the success of a cultural event that welcomed more than \textbf{10,000 visitors}.}
-}
-
-\vspace{-20pt}
-\cvsection{Projects}
-$\cdot$ \href{https://github.com/rboudrouss/mopsa-emcc}{\textbf{Mopsa-wasm}} : Porting the MOPSA analyzer to \textbf{WebAssembly} with a web interface. Mopsa is an abstract-interpretation-based analyzer for C and Python code, developed in \textbf{OCaml, C and C++.} \\
-$\cdot$ \href{https://github.com/rboudrouss/reactant-analyzer}{\textbf{Reactant analyzer}} : implementation of an \textbf{abstract interpretation}-based analyzer in \textbf{Rust} to analyze Web applications that use the \textbf{React} library.
-
-
-
-%\vspace{-15pt}
-%\cvsection{Skills}
-
-%\textbf{Languages:} Typescript, Java, Python, Ocaml, SQL, C, Go \\
-%\textbf{Methods:} TDD \& Model-based Testing, static code analysis, Design by Contract, DevOps \& Infrastructure \\
-%\textbf{Technologies:} React, Next.js, Docker, tRPC, Tailwind, PostgreSQL, Express, Git/Github, CI/CD, \\
-%\textbf{Hobbies:} Tech conferences, talks, Game jams, Hackathons
-
 
 %--------------------------------------------------------------------------------------------------
-%	ARTIFICIAL FOOTER (fancy footer cannot exceed linewidth) 
+%	ARTIFICIAL FOOTER (fancy footer cannot exceed linewidth)
 %--------------------------------------------------------------------------------------------------
 
 \null
 \vspace*{\fill}
 \hspace{-0.25\linewidth}\colorbox{white}{\makebox[1.5\linewidth][c]{\mystrut  \textnormal{\textcolor{sectcol}{\href{https://www.linkedin.com/in/rboudrouss}{linkedin.com/in/rboudrouss}} $\cdot$ \textcolor{sectcol}{\href{https://github.com/rboudrouss}{github.com/rboudrouss}}}}}
 
-
-%============================================================================%
-%
-%
-%
-%	DOCUMENT END
-%
-%
-%
-%============================================================================%
 \end{document}
