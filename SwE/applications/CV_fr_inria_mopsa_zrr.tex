@@ -1,0 +1,386 @@
+﻿%-----------------------------------------------------------------------------------------------------------------------------------------------%
+%	The MIT License (MIT)
+%
+%	Copyright (c) 2015 Jan Küster
+%
+%	Permission is hereby granted, free of charge, to any person obtaining a copy
+%	of this software and associated documentation files (the "Software"), to deal
+%	in the Software without restriction, including without limitation the rights
+%	to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+%	copies of the Software, and to permit persons to whom the Software is
+%	furnished to do so, subject to the following conditions:
+%	
+%	THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+%	IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+%	FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+%	AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+%	LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+%	OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
+%	THE SOFTWARE.
+%	
+%
+%-----------------------------------------------------------------------------------------------------------------------------------------------%
+
+
+%============================================================================%
+%
+%	DOCUMENT DEFINITION
+%
+%============================================================================%
+
+%we use article class because we want to fully customize the page and don't use a cv template
+\documentclass[10pt,A4]{article}	
+
+
+%----------------------------------------------------------------------------------------
+%	ENCODING
+%----------------------------------------------------------------------------------------
+
+%we use utf8 since we want to build from any machine
+\usepackage[utf8]{inputenc}		
+
+%----------------------------------------------------------------------------------------
+%	LOGIC
+%----------------------------------------------------------------------------------------
+
+% provides \isempty test
+\usepackage{xifthen}
+
+%----------------------------------------------------------------------------------------
+%	FONT
+%----------------------------------------------------------------------------------------
+
+% some tex-live fonts - choose your own
+
+%\usepackage[defaultsans]{droidsans}
+%\usepackage[default]{comfortaa}
+%\usepackage{cmbright}
+%\usepackage[default]{raleway}
+%\usepackage{fetamont}
+%\usepackage[default]{gillius}
+%\usepackage[light,math]{iwona}
+%\usepackage[thin]{roboto} 
+
+% set font default
+\renewcommand*\familydefault{\sfdefault} 	
+\usepackage[T1]{fontenc}
+
+% more font size definitions
+\usepackage{moresize}		
+
+
+%----------------------------------------------------------------------------------------
+%	PAGE LAYOUT  DEFINITIONS
+%----------------------------------------------------------------------------------------
+
+%debug page outer frames
+%\usepackage{showframe}			
+
+
+%define page styles using geometry
+\usepackage[a4paper]{geometry}		
+
+% for example, change the margins to 2 inches all round
+\geometry{top=1.25cm, bottom=-.6cm, left=1.5cm, right=1.5cm} 	
+
+%use customized header
+\usepackage{fancyhdr}				
+\pagestyle{fancy}
+
+%less space between header and content
+\setlength{\headheight}{-5pt}		
+
+
+%customize entries left, center and right
+%\lhead{}
+%\chead{}
+%\rhead{}
+
+
+%indentation is zero
+\setlength{\parindent}{0mm}
+
+%----------------------------------------------------------------------------------------
+%	TABLE /ARRAY DEFINITIONS
+%---------------------------------------------------------------------------------------- 
+
+%for layouting tables
+\usepackage{multicol}			
+\usepackage{multirow}
+
+%extended aligning of tabular cells
+\usepackage{array}
+
+\newcolumntype{x}[1]{%
+>{\raggedleft\hspace{0pt}}p{#1}}%
+
+
+%----------------------------------------------------------------------------------------
+%	GRAPHICS DEFINITIONS
+%---------------------------------------------------------------------------------------- 
+
+%for header image
+\usepackage{graphicx}
+
+%for floating figures
+\usepackage{wrapfig}
+\usepackage{float}
+%\floatstyle{boxed} 
+%\restylefloat{figure}
+
+%for drawing graphics		
+\usepackage{tikz}				
+\usetikzlibrary{shapes, backgrounds,mindmap, trees}
+
+
+%----------------------------------------------------------------------------------------
+%	Color DEFINITIONS
+%---------------------------------------------------------------------------------------- 
+
+\usepackage{color}
+
+%accent color
+\definecolor{sectcol}{RGB}{0,0,180}
+
+%dark background color
+\definecolor{bgcol}{RGB}{110,110,110}
+
+%light background / accent color
+\definecolor{softcol}{RGB}{225,225,225}
+
+
+%----------------------------------------------------------------------------------------
+%	Other Packages
+%---------------------------------------------------------------------------------------- 
+
+% for \href
+\definecolor{linkcolor}{RGB}{0,50,150}
+\usepackage[colorlinks=true,urlcolor=linkcolor,linkcolor=linkcolor]{hyperref}
+
+%============================================================================%
+%
+%
+%	DEFINITIONS
+%
+%
+%============================================================================%
+
+%----------------------------------------------------------------------------------------
+% 	HEADER
+%----------------------------------------------------------------------------------------
+
+% remove top header line
+\renewcommand{\headrulewidth}{0pt} 
+
+%remove bottom header line
+\renewcommand{\footrulewidth}{0pt}	  	
+
+%remove pagenum
+\renewcommand{\thepage}{}	
+
+%remove section num		
+\renewcommand{\thesection}{}			
+
+%----------------------------------------------------------------------------------------
+% 	ARROW GRAPHICS in Tikz
+%----------------------------------------------------------------------------------------
+
+% a six pointed arrow pointing to the left
+\newcommand{\tzlarrow}{(0,0) -- (0.2,0) -- (0.3,0.2) -- (0.2,0.4) -- (0,0.4) -- (0.1,0.2) -- cycle;}	
+
+% include the left arrow into a tikz picture
+% param1: fill color
+%
+\newcommand{\larrow}[1]
+{\begin{tikzpicture}[scale=0.58]
+	 \filldraw[fill=#1!100,draw=#1!100!black]  \tzlarrow
+ \end{tikzpicture}
+}
+
+% a six pointed arrow pointing to the right
+\newcommand{\tzrarrow}{ (0,0.2) -- (0.1,0) -- (0.3,0) -- (0.2,0.2) -- (0.3,0.4) -- (0.1,0.4) -- cycle;}
+
+% include the right arrow into a tikz picture
+% param1: fill color
+%
+\newcommand{\rarrow}
+{\begin{tikzpicture}[scale=0.7]
+	\filldraw[fill=sectcol!100,draw=sectcol!100!black] \tzrarrow
+ \end{tikzpicture}
+}
+
+
+
+%----------------------------------------------------------------------------------------
+%	custom sections
+%----------------------------------------------------------------------------------------
+
+% create a coloured box with arrow and title as cv section headline
+% param 1: section title
+%
+\newcommand{\cvsection}[1]
+{
+	\begin{center}
+		\large\textcolor{sectcol}{\textbf{#1}}
+	\end{center}
+}
+
+%create a coloured arrow with title as cv meta section section
+% param 1: meta section title
+%
+\newcommand{\metasection}[2]
+{
+%\begin{tabular*}{1\textwidth}{r r}
+\footnotesize{#2} \hspace*{\fill} \footnotesize{#1}\\[1pt]
+%\end{tabular*}
+}
+
+%----------------------------------------------------------------------------------------
+%	 CV EVENT
+%----------------------------------------------------------------------------------------
+
+% creates a stretched box as cv entry headline followed by some paragraphs about 
+% the work you did
+% param 1:	event time i.e. 2014 or 2011-2014 etc.
+% param 2:	event name (what did you do?)
+% param 3:	institution (where did you work / study)
+% param 4:	list of paragraphs
+%
+\newcommand{\cvevent}[4]
+{
+
+\begin{tabular*}{1\textwidth}{p{13.6cm}  x{3.9cm}}
+	\textbf{#2} - \textcolor{bgcol}{#3} &   \vspace{2.5pt}\textcolor{sectcol}{#1}
+\end{tabular*}
+
+\vspace{-10pt}
+\textcolor{softcol}{\hrule}
+\vspace{6pt}
+
+	\foreach \desc in {#4}{
+		$\cdot$ \desc\\[3pt]
+	}
+	
+\vspace{3pt}
+}
+
+% creates a stretched box as 
+\newcommand{\cveventmeta}[2]
+{
+	\mbox{\mystrut \hspace{87pt}\textit{#1}}\\
+	#2
+}
+
+%----------------------------------------------------------------------------------------
+% CUSTOM STRUT FOR EMPTY BOXES
+%----------------------------------------- -----------------------------------------------
+\newcommand{\mystrut}{\rule[-.3\baselineskip]{0pt}{\baselineskip}}
+
+%----------------------------------------------------------------------------------------
+% CUSTOM LOREM IPSUM
+%----------------------------------------------------------------------------------------
+\newcommand{\lorem}
+{Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec a diam lectus.}
+
+
+
+%============================================================================%
+%
+%
+%
+%	DOCUMENT CONTENT
+%
+%
+%
+%============================================================================%
+\begin{document}
+
+%use our custom fancy header definitions
+\pagestyle{fancy}
+
+%---------------------------------------------------------------------------------------
+%	TITLE HEADLINE
+%----------------------------------------------------------------------------------------
+
+\vspace{-8pt}
+\begin{center}
+    {\HUGE \textsc{Boudrouss Réda} \textcolor{sectcol}{\rule[-1mm]{1mm}{0.9cm}} \textsc{CV}}\\[2pt]
+    {\small Ingénieur en informatique -- Analyse statique \& interprétation abstraite -- Paris}
+\end{center}
+
+\vspace{6pt}
+
+%----------------------------------------
+%   MÉTADONNÉES
+%----------------------------------------
+\metasection{\href{https://github.com/rboudrouss}{github.com/rboudrouss}}{}
+\metasection{\href{https://www.linkedin.com/in/rboudrouss}{linkedin.com/in/rboudrouss}}{}
+\metasection{\href{mailto:contact@rboud.com}{contact@rboud.com}}{}
+\metasection{\href{https://rboud.com}{rboud.com}}{}
+\metasection{+33 (0)7 55 78 85 16}{\textbf{Langues :} Français (Natif), Anglais (Professionnel), Arabe (Conversationnel)}
+
+\vspace{-15pt}
+\textcolor{softcol}{\hrule}
+
+\normalsize
+
+%----------------------------------------
+%   EXPÉRIENCES
+%----------------------------------------
+\cvsection{Expériences}
+
+\cvevent{2025 -- 2026}{Quality Analyst Engineer (alternance)}{Hexaglobe (streaming vidéo), Paris}{
+	{Conception de \textbf{stratégies de test} complètes (unitaires, intégration, E2E) pour des produits legacy sans aucune couverture, jusqu'à environ \textbf{3 000 cas de test} sur 4 stacks (TypeScript, Python, PHP, JS).},
+	{Développement d'\textbf{oracles de qualité objectifs} (VMAF, détection de trames noires et de gels d'image, analyse audio) pour valider un encodeur vidéo live.},
+	{Industrialisation d'une production de tests par \textbf{agents IA} conditionnée à des signaux de vérification déterministes (orchestration multi-agents en sandbox Docker, garde-fous versionnés, tests verts obligatoires, relecture humaine) : environ 720 tests d'intégration en 3 jours.},
+	{Pipelines \textbf{GitLab CI/CD} et composants CI mutualisés utilisés par 10+ dépôts, avec intégration d'outils d'\textbf{analyse statique} dans la chaîne.}
+}
+
+\cvevent{2023 -- 2026}{Responsable technique}{Association Play Sorbonne Université}{
+	{Conception, développement et administration de l'\textbf{infrastructure technique} de l'association (Docker, CI/CD, serveurs, réseau, Google Workspace).},
+	{Développement et maintenance du site web de l'association (\textbf{9 000 visiteurs uniques} en 2025) et d'une application web mobile \textbf{local-first} avec authentification sécurisée.}
+}
+
+\cvevent{2024 -- 2025}{Président}{Association Play Sorbonne Université}{
+	{Pilotage de l'association et coordination des équipes techniques et organisationnelles ; encadrement de \textbf{100+ bénévoles} pour un événement accueillant \textbf{10 000+ visiteurs}.}
+}
+
+%----------------------------------------
+%   PROJETS
+%----------------------------------------
+\vspace{-22pt}
+\cvsection{Projets}
+
+\cvevent{2026}{Mopsa-wasm}{\href{https://github.com/rboudrouss/mopsa-emcc}{github.com/rboudrouss/mopsa-emcc}}{
+	{Portage de \textbf{MOPSA}, analyseur statique par \textbf{interprétation abstraite} pour C et Python écrit en \textbf{OCaml}/C/C++ au LIP6, vers \textbf{WebAssembly} : compilation Emscripten du runtime OCaml et de toute la pile native (frontend Clang, \textbf{Apron}, GMP, MPFR) en un module Wasm statique unique.},
+	{Travail des deux côtés de la frontière \textbf{runtime OCaml / FFI C} : table statique d'environ 1 400 primitives C (pas de \texttt{dlopen} en Wasm), correction d'un bug de dépassement non signé dans la macro \texttt{Tag\_val}. Traitement du risque de \textbf{correction} lié au mode d'arrondi figé de Wasm en recompilant les domaines numériques d'Apron sur des rationnels exacts GMP. Publication d'un \href{https://mopsawasm.rboud.com}{playground} côté client et d'un \href{https://rboud.com/blog/running-mopsa-in-the-browser/}{article technique}.}
+}
+
+\cvevent{2026}{Reactant analyzer}{\href{https://github.com/rboudrouss/reactant-analyzer}{github.com/rboudrouss/reactant-analyzer}}{
+	{Conception et implémentation d'un analyseur statique par \textbf{interprétation abstraite} en \textbf{Rust} (environ 30k lignes, 500+ tests) détectant des bugs de hooks \textbf{React} hors de portée des linters syntaxiques : boucles de rendu infinies, état dérivé, dépendances instables.},
+	{Évaluation des composants dans des domaines abstraits (intervalles, ensembles de constantes, étiquettes de stabilité référentielle) sur une IR dédiée à base de CFG : une boucle de rendu infinie est signalée lorsque le point fixe sur l'état \textbf{élargit}. Sémantique concrète fondée sur l'article React-tRace (OOPSLA 2025).}
+}
+
+%----------------------------------------
+%   FORMATION
+%----------------------------------------
+\vspace{-22pt}
+\cvsection{Formation}
+
+\cvevent{2024 -- 2026}{Master Science et Technologie du Logiciel}{Sorbonne Université, Paris}{
+    {Cours suivis : \textbf{interprétation abstraite} et systèmes de types (cours d'Antoine Miné), inférence de propriétés numériques, \textbf{vérification formelle}, typage statique, conception et implémentation de \textbf{langages de programmation} et de leurs environnements d'exécution (interpréteurs, compilateurs), \textbf{concurrence} et programmation répartie.}
+}
+
+\cvevent{2020 -- 2024}{Licence Informatique}{Sorbonne Université, Paris}{
+    {Algorithmique, architecture des ordinateurs, systèmes d'exploitation, réseaux, bases de données, programmation fonctionnelle.}
+}
+
+%--------------------------------------------------------------------------------------------------
+%	ARTIFICIAL FOOTER (fancy footer cannot exceed linewidth)
+%--------------------------------------------------------------------------------------------------
+
+\null
+\vspace*{\fill}
+\hspace{-0.25\linewidth}\colorbox{white}{\makebox[1.5\linewidth][c]{\mystrut  \textnormal{\textcolor{sectcol}{\href{https://www.linkedin.com/in/rboudrouss}{linkedin.com/in/rboudrouss}} $\cdot$ \textcolor{sectcol}{\href{https://github.com/rboudrouss}{github.com/rboudrouss}}}}}
+
+\end{document}
